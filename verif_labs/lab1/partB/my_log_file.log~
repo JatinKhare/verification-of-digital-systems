@@ -1,0 +1,25 @@
+                          CONFORMAL (R)
+                   Version 18.20-s200 (14-Dec-2018) (64 bit executable)
+   Copyright (c) Cadence Design Systems, Inc., 1997-2018. All Rights Reserved
+
+
+This program is proprietary and confidential information belonging to
+Cadence Design Systems, Inc., and may be used and disclosed only as authorized
+in a license agreement controlling such use and disclosure.
+
+// Warning: This version is 1360 days old. You can download the latest version from http://downloads.cadence.com.
+
+0
+// Command: set_undefined_cell -noascend black_box -both
+// Error: This command is not allowed in current system mode.
+1
+// 'dofile /home/ecelrc/students/jkhare/verif_labs/lab1/partB/scripts/lec/lec.do' is aborted at line 8
+// Command: vpx set system mode setup
+// Command: vpx set system mode setup
+// Command: vpx dofile /home/ecelrc/students/jkhare/verif_labs/lab1/partB/scripts/lec/lec.do
+// Command: tclmode
+In Tcl mode already.
+CPU time     : 70.33   seconds
+Elapse time  : 1052    seconds
+Memory usage : 542.00  M bytes
+// Command: set_log_file my_log_file.log -replace

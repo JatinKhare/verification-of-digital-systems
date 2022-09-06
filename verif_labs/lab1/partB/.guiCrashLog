@@ -1,0 +1,51 @@
+guiDumpFileStart: lec_dump_stack_286290
+user:      jkhare
+hostname:  kamek.ece.utexas.edu
+case_dir:  /home/ecelrc/students/jkhare/verif_labs/lab1/partB
+cmd_options: /usr/local/packages/cadence_2018/CONFRML182/tools.lnx86/cfm/bin/64bit/lec  -xl
+cmd_dir:    /misc/linuxws/packages/cadence_2018/CONFRML182/tools.lnx86/cfm/bin/64bit/lec_exec
+Version: 18.20-s200 (14-Dec-2018) (64 bit executable)
+System: Linux 3.10.0-1160.76.1.el7.x86_64 #1 SMP Wed Aug 10 16:21:17 UTC 2022
+
+VERILOG FATAL: near file '/home/ecelrc/students/jkhare/verif_labs/lab1/partB/verilog/lib/generic_iobuf.v' line '54' token ''
+VERILOG FATAL: near file '/home/ecelrc/students/jkhare/verif_labs/lab1/partB/verilog/lib/generic_iobuf.v' line '54' token ''
+/usr/local/packages/cadence_2018/CONFRML182/tools.lnx86/cfm/bin/64bit/lec() [0x17dc7f7]
+/usr/local/packages/cadence_2018/CONFRML182/tools.lnx86/cfm/bin/64bit/lec() [0x17de26d]
+/usr/local/packages/cadence_2018/CONFRML182/tools.lnx86/cfm/bin/64bit/lec() [0xd27ba4]
+/lib64/libc.so.6(+0x36400) [0x2abb6669b400]
+/lib64/libc.so.6(gsignal+0x37) [0x2abb6669b387]
+/lib64/libc.so.6(abort+0x148) [0x2abb6669ca78]
+/lib64/libc.so.6(+0x78f67) [0x2abb666ddf67]
+/lib64/libc.so.6(+0x7f474) [0x2abb666e4474]
+/lib64/libc.so.6(+0x82c84) [0x2abb666e7c84]
+/lib64/libc.so.6(__libc_malloc+0x4c) [0x2abb666ea78c]
+/usr/local/packages/cadence_2018/CONFRML182/tools.lnx86/cfm/bin/64bit/lec(malloc+0x4e) [0x17f3dce]
+/usr/local/packages/cadence_2018/CONFRML182/tools.lnx86/lib/64bit/libcpu-o.so(Mem_alloc+0x10) [0x2abb63c21d60]
+/usr/local/packages/cadence_2018/CONFRML182/tools.lnx86/lib/64bit/libcpu-o.so(Fmt_buf_init+0x39) [0x2abb63c1fb99]
+/usr/local/packages/cadence_2018/CONFRML182/tools.lnx86/cfm/bin/64bit/lec() [0xd2b56d]
+/usr/local/packages/cadence_2018/CONFRML182/tools.lnx86/cfm/bin/64bit/lec() [0xd32e9e]
+/usr/local/packages/cadence_2018/CONFRML182/tools.lnx86/cfm/bin/64bit/lec() [0xd332ce]
+/usr/local/packages/cadence_2018/CONFRML182/tools.lnx86/cfm/bin/64bit/lec() [0xd3b610]
+/usr/local/packages/cadence_2018/CONFRML182/tools.lnx86/cfm/bin/64bit/lec() [0xd27bf6]
+/usr/local/packages/cadence_2018/CONFRML182/tools.lnx86/cfm/bin/64bit/lec() [0x517726]
+/usr/local/packages/cadence_2018/CONFRML182/tools.lnx86/cfm/bin/64bit/lec() [0x51c1d7]
+/usr/local/packages/cadence_2018/CONFRML182/tools.lnx86/cfm/bin/64bit/lec() [0x3a9020e]
+/usr/local/packages/cadence_2018/CONFRML182/tools.lnx86/cfm/bin/64bit/lec() [0x51c1d7]
+/usr/local/packages/cadence_2018/CONFRML182/tools.lnx86/cfm/bin/64bit/lec() [0x51e397]
+/usr/local/packages/cadence_2018/CONFRML182/tools.lnx86/cfm/bin/64bit/lec() [0x51ed73]
+/usr/local/packages/cadence_2018/CONFRML182/tools.lnx86/cfm/bin/64bit/lec() [0x3b1daa8]
+/usr/local/packages/cadence_2018/CONFRML182/tools.lnx86/cfm/bin/64bit/lec() [0x3a7d89d]
+/usr/local/packages/cadence_2018/CONFRML182/tools.lnx86/cfm/bin/64bit/lec() [0x3a80f7c]
+/usr/local/packages/cadence_2018/CONFRML182/tools.lnx86/cfm/bin/64bit/lec() [0x3a8133c]
+/usr/local/packages/cadence_2018/CONFRML182/tools.lnx86/cfm/bin/64bit/lec() [0x5dee67]
+/usr/local/packages/cadence_2018/CONFRML182/tools.lnx86/cfm/bin/64bit/lec() [0x5df0af]
+/usr/local/packages/cadence_2018/CONFRML182/tools.lnx86/cfm/bin/64bit/lec() [0xd34110]
+/usr/local/packages/cadence_2018/CONFRML182/tools.lnx86/cfm/bin/64bit/lec() [0x461e19]
+/lib64/libc.so.6(__libc_start_main+0xf5) [0x2abb66687555]
+/usr/local/packages/cadence_2018/CONFRML182/tools.lnx86/cfm/bin/64bit/lec() [0x482189]
+guiDumpFileEnd
+
+guiUsageFileStart 
+
+guiUsageFileEnd
+
