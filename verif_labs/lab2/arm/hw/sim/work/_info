@@ -9,16 +9,16 @@ z2
 cModel Technology
 Z0 d/home/ecelrc/students/jkhare/verif_labs/lab2/lab2/arm/hw/sim
 T_opt
-!s110 1663807466
-V;VFU8fPi:am>SUn30z[m32
+!s110 1663811847
+VV:LlnfEjR;>Ujij1YGRY<0
 04 2 4 work tb fast 0
-=1-e4434bc586d2-632bafea-5b879-149fb
+=1-e4434bc586d2-632bc107-19919-2e4d4
 o-quiet -auto_acc_if_foreign -work work +acc
 Z1 tCvgOpt 0
 n@_opt
 OL;O;10.6;65
 va25_alu
-Z2 !s110 1663807450
+Z2 !s110 1663811824
 !i10b 1
 !s100 Yz1BF@bLWYgB38i8b14=m2
 IP0V;4PN[2cLMNackDn=532
@@ -32,7 +32,7 @@ Z6 OL;L;10.6;65
 r1
 !s85 0
 31
-Z7 !s108 1663807450.000000
+Z7 !s108 1663811824.000000
 Z8 !s107 ../vlog/amber25/a25_config_defines.v|../vlog/ethmac/timescale.v|../vlog/ethmac/eth_defines.v|../vlog/amber25/memory_configuration.v|../vlog/system/register_addresses.v|../vlog/amber25/a25_functions.v|../vlog/amber25/a25_localparams.v|../vlog/tb/debug_functions.v|../vlog/tb/global_defines.v|../vlog/system/system_config_defines.v|/usr/local/packages/Xilinx_32/14.4/ISE_DS/ISE/verilog/src/glbl.v|../vlog/tb/tb.v|
 Z9 !s90 +libext+.v|+incdir+../vlog/amber23+../vlog/amber25+../vlog/system+../vlog/tb+../vlog/ethmac|+incdir+../vlog/lib+../vlog/xs6_ddr3+../vlog/xv6_ddr3|-y|../vlog/amber25|-y|../vlog/system|-y|../vlog/tb|-y|../vlog/ethmac|-y|../vlog/lib|-y|../vlog/xs6_ddr3|-y|../vlog/xv6_ddr3|-y|/usr/local/packages/Xilinx_32/14.4/ISE_DS/ISE/verilog/src/unisims|-y|/usr/local/packages/Xilinx_32/14.4/ISE_DS/ISE/verilog/src|../vlog/tb/tb.v|/usr/local/packages/Xilinx_32/14.4/ISE_DS/ISE/verilog/src/glbl.v|+define+BOOT_MEM_FILE="../tests/ethmac_tx.mem"|+define+BOOT_MEM_PARAMS_FILE="../tests/ethmac_tx_memparams.v"|+define+MAIN_MEM_FILE=""|+define+AMBER_LOG_FILE="tests.log"|+define+AMBER_TEST_NAME="ethmac_tx"|+define+AMBER_SIM_CTRL=1|+define+AMBER_TIMEOUT=16692|+define+AMBER_A25_CORE|
 !i113 0
@@ -936,7 +936,7 @@ R11
 R1
 XFSMProperties
 Z26 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-R2
+Z27 !s110 1663811825
 !i10b 1
 !s100 JefG5SbNaM1BbglOl:^8Y2
 IVI4<lQmm<dg`INRWG8<4Z0
@@ -955,7 +955,7 @@ R7
 !s107 ../../../SVA/FSMProperties_pkg.sv|
 !s90 -sv|../../../SVA/FSMProperties_pkg.sv|
 !i113 0
-Z27 o-sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z28 o-sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R1
 n@f@s@m@properties
 vgeneric_iobuf
@@ -1056,7 +1056,7 @@ R0
 R4
 8../vlog/system/interrupt_controller.v
 F../vlog/system/interrupt_controller.v
-Z28 F../vlog/system/register_addresses.v
+Z29 F../vlog/system/register_addresses.v
 R5
 R6
 r1
@@ -1095,7 +1095,7 @@ R1
 vmodule4SVA
 R26
 DXx4 work 13 FSMProperties 0 22 VI4<lQmm<dg`INRWG8<4Z0
-Z29 !s110 1663807451
+R27
 !i10b 1
 !s100 VkL2bjJ7Gb9m@l;Ez5]CV1
 IadUaiFgf77iDRPH@Si5T=0
@@ -1111,24 +1111,24 @@ R6
 r1
 !s85 0
 31
-R7
-Z34 !s107 ../../../SVA/module4SVA.sv|
-Z35 !s90 -sv|../../../SVA/module4SVA.sv|
+Z34 !s108 1663811825.000000
+Z35 !s107 ../../../SVA/module4SVA.sv|
+Z36 !s90 -sv|../../../SVA/module4SVA.sv|
 !i113 0
-R27
+R28
 R1
 nmodule4@s@v@a
 vmy_tb
 R26
 R2
 !i10b 1
-!s100 Q?3CUmP@ic`LdQJ<h[lGH0
-IW<UlEDe7=k1W@;5K3ZRPn0
+!s100 `KEV8En96U7Z4oL47XZ=U3
+INm^gd;L`aP`k>LO6i35hX3
 R3
 !s105 test_sv_unit
 S1
 R0
-w1663807239
+w1663807892
 8../vlog/tb/test.sv
 F../vlog/tb/test.sv
 L0 6
@@ -1140,7 +1140,7 @@ R7
 !s107 ../vlog/tb/test.sv|
 !s90 -sv|../vlog/tb/test.sv|
 !i113 0
-R27
+R28
 R1
 vsystem
 R2
@@ -1221,7 +1221,7 @@ R0
 R4
 8../vlog/system/test_module.v
 F../vlog/system/test_module.v
-R28
+R29
 R21
 R6
 r1
@@ -1244,7 +1244,7 @@ R0
 R4
 8../vlog/system/timer_module.v
 F../vlog/system/timer_module.v
-R28
+R29
 R5
 R6
 r1
@@ -1267,7 +1267,7 @@ R0
 R4
 8../vlog/system/uart.v
 F../vlog/system/uart.v
-R28
+R29
 L0 61
 R6
 r1
@@ -1305,7 +1305,7 @@ R11
 R1
 vWrapper
 R26
-R29
+R27
 !i10b 1
 !s100 [`ojP0o@>jR6:N1hMY`]A0
 I^4]^^6KWADX5ZgTB1`^eR2
@@ -1321,10 +1321,10 @@ R6
 r1
 !s85 0
 31
-R7
 R34
 R35
+R36
 !i113 0
-R27
+R28
 R1
 n@wrapper

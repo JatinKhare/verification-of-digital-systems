@@ -85,13 +85,11 @@ ap5: assert property (ack_property(r_ack_cond));
 
 reg reset_n;
 always @(quick_n_reset) begin
-	#1
-	reset_n = quick_n_reset;
+	#1 reset_n = quick_n_reset;
 end
 
 property reset_check(signal_value);
-	@(negedge reset_n)
-	(!quick_n_reset) |-> (signal_value==0);
+	@(negedge reset_n) (!quick_n_reset) |-> (signal_value==0);
 endproperty
 
 //asserting the reset condition
