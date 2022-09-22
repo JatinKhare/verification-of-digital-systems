@@ -425,6 +425,8 @@ always @( posedge i_clk or negedge quick_n_reset)
                     end
             else
             begin
+		//Making the failed assertions work 2.0
+
                 //wishbone_st                         <= WB_IDLE;
                 wishbone_st                         <= WB_WAIT_ACK;
             end         

@@ -12,7 +12,7 @@
 # //  18 U.S.C. Section 1905.
 # //
 # vsim -voptargs="+acc" tb -assertdebug -do "run.do" 
-# Start time: 13:41:55 on Sep 21,2022
+# Start time: 19:44:25 on Sep 21,2022
 # ** Note: (vsim-3812) Design is being optimized...
 # ** Note: (vopt-143) Recognized 1 FSM in module "a25_decode(fast)".
 # ** Note: (vopt-143) Recognized 1 FSM in module "a25_dcache(fast)".
@@ -128,6 +128,5 @@
 #    Time: 98052500 ps  Iteration: 4  Instance: /tb
 # 1
 # Break in Module tb at ../vlog/tb/tb.v line 512
-coverage report -assert -detail -file /home/ecelrc/students/jkhare/verif_labs/lab2/lab2/arm/hw/sim/assertion_report.txt -r /
-# End time: 13:43:33 on Sep 21,2022, Elapsed time: 0:01:38
+# End time: 19:46:03 on Sep 21,2022, Elapsed time: 0:01:38
 # Errors: 0, Warnings: 0

@@ -1,3 +1,5 @@
+//specifying the paramters for the module
+
 module module4SVA (
 input i_clk, input i_wb_ack, input extra_write_r, input [2:0] wishbone_st);
 
@@ -16,6 +18,8 @@ localparam [3:0] WB_IDLE            = 3'd0,
 //property1(clk, cur_state_cond, cond, wishbone_st_cond);
 //property2(clk, cur_state_cond, output_cond);
 //property3(clk, cur_state_cond);
+
+//Asserting the properties here
 
 a1:assert property (property1(i_clk, (wishbone_st==WB_IDLE), 1, ((wishbone_st == WB_IDLE)||(wishbone_st == WB_BURST1)||(wishbone_st == WB_WAIT_ACK))));
 a2:assert property (property1(i_clk, (wishbone_st==WB_BURST1), i_wb_ack, (wishbone_st == WB_BURST2)));

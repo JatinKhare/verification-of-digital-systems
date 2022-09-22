@@ -295,6 +295,7 @@ assign o_s7_wb_stb  = current_slave == 4'd7 ? master_stb : 1'd0;
 
 
 // Master Outputs
+//Making the failed assertions work
 //assign master_rdat  = current_slave == 4'd0  ? 32'hx :
 assign master_rdat  = current_slave == 4'd0  ? i_s0_wb_dat  :
                       current_slave == 4'd1  ? i_s1_wb_dat  :
