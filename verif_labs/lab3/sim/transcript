@@ -1,0 +1,287 @@
+# //  ModelSim SE-64 10.6 Dec 13 2016Linux 3.10.0-1160.76.1.el7.x86_64
+# //
+# //  Copyright 1991-2016 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# do run.do
+# Model Technology ModelSim SE-64 vlog 10.6 Compiler 2016.12 Dec 13 2016
+# Start time: 17:37:45 on Oct 12,2022
+# vlog -reportprogress 300 ../dut/ALU_netlist.v ../lib/gscl45nm.v 
+# -- Compiling module add_unsigned_6
+# -- Compiling module add_unsigned_carry_1
+# -- Compiling module add_unsigned_carry_28
+# -- Compiling module add_unsigned_carry
+# -- Compiling module gt_signed
+# -- Compiling module geq_signed
+# -- Compiling module increment_unsigned
+# -- Compiling module lt_signed
+# -- Compiling module leq_signed
+# -- Compiling module shift_left_vlog_unsigned
+# -- Compiling module shift_left_vlog_unsigned_1
+# -- Compiling module shift_right_vlog_unsigned
+# -- Compiling module shift_right_vlog_unsigned_623
+# -- Compiling module shift_right_vlog_unsigned_784
+# -- Compiling module shift_right_vlog_unsigned_784_1
+# -- Compiling module ALU
+# -- Compiling module AND2X1
+# -- Compiling module AND2X2
+# -- Compiling module AOI21X1
+# -- Compiling module AOI22X1
+# -- Compiling module BUFX2
+# -- Compiling module BUFX4
+# -- Compiling module CLKBUF1
+# -- Compiling module CLKBUF2
+# -- Compiling module CLKBUF3
+# -- Compiling module DFFNEGX1
+# -- Compiling module DFFPOSX1
+# -- Compiling module DFFSR
+# -- Compiling module FAX1
+# -- Compiling module HAX1
+# -- Compiling module INVX1
+# -- Compiling module INVX2
+# -- Compiling module INVX4
+# -- Compiling module INVX8
+# -- Compiling module LATCH
+# -- Compiling module MUX2X1
+# -- Compiling module NAND2X1
+# -- Compiling module NAND3X1
+# -- Compiling module NOR2X1
+# -- Compiling module NOR3X1
+# -- Compiling module OAI21X1
+# -- Compiling module OAI22X1
+# -- Compiling module OR2X1
+# -- Compiling module OR2X2
+# -- Compiling module TBUFX1
+# -- Compiling module TBUFX2
+# -- Compiling module XNOR2X1
+# -- Compiling module XOR2X1
+# -- Compiling UDP udp_dff
+# -- Compiling UDP udp_tlat
+# -- Compiling UDP udp_rslat
+# -- Compiling UDP udp_mux2
+# 
+# Top level modules:
+# 	ALU
+# 	AND2X2
+# 	BUFX4
+# 	CLKBUF1
+# 	CLKBUF2
+# 	CLKBUF3
+# 	DFFNEGX1
+# 	DFFSR
+# 	INVX2
+# 	INVX4
+# 	INVX8
+# 	LATCH
+# 	OAI22X1
+# 	TBUFX1
+# 	TBUFX2
+# End time: 17:37:45 on Oct 12,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.6 Compiler 2016.12 Dec 13 2016
+# Start time: 17:37:46 on Oct 12,2022
+# vlog -reportprogress 300 "+cover" -sv ../tb/interfaces.sv ../tb/sequences.sv ../tb/coverage.sv ../tb/scoreboard.sv ../tb/modules.sv ../tb/tests.sv ../tb/tb.sv 
+# -- Compiling interface dut_in
+# -- Compiling interface dut_out
+# ** Note: (vlog-2286) ../tb/sequences.sv(1): Using implicit +incdir+/misc/linuxws/packages/mentor_2016/modelsim10.6/modeltech/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# -- Compiling package sequences
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Compiling package coverage
+# -- Importing package sequences
+# -- Compiling package scoreboard
+# ** Warning: ../tb/scoreboard.sv(68): (vlog-2269) Unterminated string literal continues onto next line 68.
+# ** Warning: ** while parsing macro expansion: 'uvm_error' starting at ../tb/scoreboard.sv(68)
+# ** at ../tb/scoreboard.sv(70): (vlog-2643) Unterminated string literal continues onto next line.
+# ** Warning: ../tb/scoreboard.sv(74): (vlog-2269) Unterminated string literal continues onto next line 74.
+# ** Warning: ** while parsing macro expansion: 'uvm_error' starting at ../tb/scoreboard.sv(74)
+# ** at ../tb/scoreboard.sv(76): (vlog-2643) Unterminated string literal continues onto next line.
+# ** Warning: ../tb/scoreboard.sv(81): (vlog-2269) Unterminated string literal continues onto next line 81.
+# ** Warning: ** while parsing macro expansion: 'uvm_error' starting at ../tb/scoreboard.sv(81)
+# ** at ../tb/scoreboard.sv(83): (vlog-2643) Unterminated string literal continues onto next line.
+# -- Compiling package modules_pkg
+# -- Importing package coverage
+# -- Importing package scoreboard
+# -- Compiling package tests
+# -- Importing package modules_pkg
+# -- Compiling package tb_sv_unit
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Importing package modules_pkg
+# -- Importing package sequences
+# -- Importing package coverage
+# -- Importing package scoreboard
+# -- Importing package tests
+# -- Compiling module dut
+# -- Compiling module top
+# 
+# Top level modules:
+# 	top
+# End time: 17:37:46 on Oct 12,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 6
+# vsim -coverage -c top 
+# Start time: 17:37:46 on Oct 12,2022
+# ** Note: (vsim-3812) Design is being optimized...
+# Loading sv_std.std
+# Loading work.dut_in(fast)
+# Loading work.dut_out(fast)
+# Loading mtiUvm.uvm_pkg
+# Loading work.sequences(fast)
+# Loading work.scoreboard(fast)
+# Loading work.coverage(fast)
+# Loading work.modules_pkg(fast)
+# Loading work.tests(fast)
+# Loading work.tb_sv_unit(fast)
+# Loading work.top(fast)
+# Loading work.ALU(fast)
+# Loading work.INVX1(fast)
+# Loading work.HAX1(fast)
+# Loading work.AOI21X1(fast)
+# Loading work.AND2X1(fast)
+# Loading work.BUFX2(fast)
+# Loading work.FAX1(fast)
+# Loading work.XOR2X1(fast)
+# Loading work.OAI21X1(fast)
+# Loading work.AOI22X1(fast)
+# Loading work.NAND2X1(fast)
+# Loading work.NOR2X1(fast)
+# Loading work.OR2X1(fast)
+# Loading work.NAND3X1(fast)
+# Loading work.MUX2X1(fast)
+# Loading work.NOR3X1(fast)
+# Loading work.XNOR2X1(fast)
+# Loading work.DFFPOSX1(fast)
+# Loading work.OR2X2(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading /misc/linuxws/packages/mentor_2016/modelsim10.6/modeltech/uvm-1.1d/linux_x86_64/uvm_dpi.so
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test test4...
+# UVM_ERROR ../tb/scoreboard.sv(70) @ 45000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB]  
+#             Wrong value of COUT, for inputs A = 0x348c8d41, B = 0xb4eae857, CIN = 0x1, and Opcode = 0x1d; Expected COUT = 0x0, Actual COUT = 0x1
+# UVM_ERROR ../tb/scoreboard.sv(83) @ 55000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB] Mismatched 
+#             Wrong value of OUT, for inputs A = 0x8ba1f123, B = 0xfacc41a, CIN = 0x1, and Opcode = 0x11; Expected OUT = 0x9b4eb53e, Actual OUT = 0x9b4eb53d
+# UVM_ERROR ../tb/scoreboard.sv(70) @ 85000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB]  
+#             Wrong value of COUT, for inputs A = 0x87aacbab, B = 0x2eae3575, CIN = 0x1, and Opcode = 0x10; Expected COUT = 0x1, Actual COUT = 0x0
+# UVM_ERROR ../tb/scoreboard.sv(76) @ 85000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB] Mismatched 
+#             Wrong value of VOUT, for inputs A = 0x87aacbab, B = 0x2eae3575, CIN = 0x1, and Opcode = 0x10; Expected VOUT = 0x1, Actual VOUT = 0x0
+# UVM_ERROR ../tb/scoreboard.sv(83) @ 135000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB] Mismatched 
+#             Wrong value of OUT, for inputs A = 0x547eaf8a, B = 0xa77d7403, CIN = 0x1, and Opcode = 0x0; Expected OUT = 0xab815075, Actual OUT = 0xab805075
+# UVM_ERROR ../tb/scoreboard.sv(70) @ 165000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB]  
+#             Wrong value of COUT, for inputs A = 0x832e9573, B = 0x5960b001, CIN = 0x1, and Opcode = 0x14; Expected COUT = 0x1, Actual COUT = 0x0
+# UVM_ERROR ../tb/scoreboard.sv(76) @ 165000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB] Mismatched 
+#             Wrong value of VOUT, for inputs A = 0x832e9573, B = 0x5960b001, CIN = 0x1, and Opcode = 0x14; Expected VOUT = 0x1, Actual VOUT = 0x0
+# UVM_ERROR ../tb/scoreboard.sv(70) @ 175000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB]  
+#             Wrong value of COUT, for inputs A = 0x8bbf20eb, B = 0x1e95e4e2, CIN = 0x1, and Opcode = 0x10; Expected COUT = 0x1, Actual COUT = 0x0
+# UVM_ERROR ../tb/scoreboard.sv(76) @ 175000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB] Mismatched 
+#             Wrong value of VOUT, for inputs A = 0x8bbf20eb, B = 0x1e95e4e2, CIN = 0x1, and Opcode = 0x10; Expected VOUT = 0x1, Actual VOUT = 0x0
+# UVM_ERROR ../tb/scoreboard.sv(70) @ 195000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB]  
+#             Wrong value of COUT, for inputs A = 0x8bf2c719, B = 0x26e3e1d, CIN = 0x1, and Opcode = 0x10; Expected COUT = 0x1, Actual COUT = 0x0
+# UVM_ERROR ../tb/scoreboard.sv(70) @ 265000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB]  
+#             Wrong value of COUT, for inputs A = 0xf3a02970, B = 0x1116408, CIN = 0x1, and Opcode = 0x1d; Expected COUT = 0x0, Actual COUT = 0x1
+# UVM_ERROR ../tb/scoreboard.sv(70) @ 275000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB]  
+#             Wrong value of COUT, for inputs A = 0x58c3291b, B = 0xd18d5dc7, CIN = 0x0, and Opcode = 0x1d; Expected COUT = 0x0, Actual COUT = 0x1
+# UVM_ERROR ../tb/scoreboard.sv(83) @ 295000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB] Mismatched 
+#             Wrong value of OUT, for inputs A = 0x5f7719c4, B = 0xc14075b6, CIN = 0x1, and Opcode = 0x0; Expected OUT = 0xa088e63b, Actual OUT = 0xa089e63b
+# UVM_ERROR ../tb/scoreboard.sv(70) @ 335000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB]  
+#             Wrong value of COUT, for inputs A = 0xf7211e52, B = 0x39cd8e01, CIN = 0x1, and Opcode = 0x17; Expected COUT = 0x0, Actual COUT = 0x1
+# UVM_ERROR ../tb/scoreboard.sv(83) @ 365000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB] Mismatched 
+#             Wrong value of OUT, for inputs A = 0x6837ad79, B = 0xb74c774c, CIN = 0x1, and Opcode = 0x0; Expected OUT = 0x97c85286, Actual OUT = 0x97c95286
+# UVM_ERROR ../tb/scoreboard.sv(70) @ 375000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB]  
+#             Wrong value of COUT, for inputs A = 0x1154e46b, B = 0x25786c62, CIN = 0x1, and Opcode = 0x17; Expected COUT = 0x0, Actual COUT = 0x1
+# UVM_ERROR ../tb/scoreboard.sv(70) @ 405000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB]  
+#             Wrong value of COUT, for inputs A = 0x19a62142, B = 0xf851c7c, CIN = 0x0, and Opcode = 0x17; Expected COUT = 0x0, Actual COUT = 0x1
+# UVM_ERROR ../tb/scoreboard.sv(83) @ 415000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB] Mismatched 
+#             Wrong value of OUT, for inputs A = 0x92aecfb1, B = 0x26730576, CIN = 0x1, and Opcode = 0x1b; Expected OUT = 0x24a, Actual OUT = 0x24abb3e
+# UVM_ERROR ../tb/scoreboard.sv(83) @ 455000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB] Mismatched 
+#             Wrong value of OUT, for inputs A = 0xdfb3fbc5, B = 0x59b87bc5, CIN = 0x0, and Opcode = 0x0; Expected OUT = 0x204c043a, Actual OUT = 0x204d043a
+# UVM_ERROR ../tb/scoreboard.sv(70) @ 465000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB]  
+#             Wrong value of COUT, for inputs A = 0x74f06a7f, B = 0xbd0c99c6, CIN = 0x0, and Opcode = 0x17; Expected COUT = 0x0, Actual COUT = 0x1
+# UVM_ERROR ../tb/scoreboard.sv(83) @ 495000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB] Mismatched 
+#             Wrong value of OUT, for inputs A = 0x295ccc18, B = 0x581cf983, CIN = 0x1, and Opcode = 0xf; Expected OUT = 0x0, Actual OUT = 0xf0000000
+# UVM_ERROR ../tb/scoreboard.sv(70) @ 515000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB]  
+#             Wrong value of COUT, for inputs A = 0xd3f16d44, B = 0x1c79abf2, CIN = 0x0, and Opcode = 0x16; Expected COUT = 0x1, Actual COUT = 0x0
+# UVM_ERROR ../tb/scoreboard.sv(76) @ 525000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB] Mismatched 
+#             Wrong value of VOUT, for inputs A = 0xfbc9a36f, B = 0xd508fe18, CIN = 0x1, and Opcode = 0x11; Expected VOUT = 0x0, Actual VOUT = 0x1
+# UVM_ERROR ../tb/scoreboard.sv(83) @ 525000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB] Mismatched 
+#             Wrong value of OUT, for inputs A = 0xfbc9a36f, B = 0xd508fe18, CIN = 0x1, and Opcode = 0x11; Expected OUT = 0xd0d2a188, Actual OUT = 0xd0d2a187
+# UVM_ERROR ../tb/scoreboard.sv(83) @ 535000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB] Mismatched 
+#             Wrong value of OUT, for inputs A = 0xb9be7200, B = 0xd1e8e17a, CIN = 0x0, and Opcode = 0x5; Expected OUT = 0x91a86000, Actual OUT = 0x11a86000
+# UVM_ERROR ../tb/scoreboard.sv(70) @ 545000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB]  
+#             Wrong value of COUT, for inputs A = 0x8a6360c9, B = 0xcb0a7dbb, CIN = 0x0, and Opcode = 0x16; Expected COUT = 0x1, Actual COUT = 0x0
+# UVM_ERROR ../tb/scoreboard.sv(70) @ 655000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB]  
+#             Wrong value of COUT, for inputs A = 0x16cfa3da, B = 0x78cdeafe, CIN = 0x1, and Opcode = 0x14; Expected COUT = 0x0, Actual COUT = 0x1
+# UVM_ERROR ../tb/scoreboard.sv(76) @ 655000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB] Mismatched 
+#             Wrong value of VOUT, for inputs A = 0x16cfa3da, B = 0x78cdeafe, CIN = 0x1, and Opcode = 0x14; Expected VOUT = 0x0, Actual VOUT = 0x1
+# UVM_ERROR ../tb/scoreboard.sv(83) @ 675000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB] Mismatched 
+#             Wrong value of OUT, for inputs A = 0x9a522976, B = 0x7804cc8b, CIN = 0x1, and Opcode = 0x0; Expected OUT = 0x65add689, Actual OUT = 0x65acd689
+# UVM_ERROR ../tb/scoreboard.sv(83) @ 715000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB] Mismatched 
+#             Wrong value of OUT, for inputs A = 0x7bf2a89e, B = 0x5cf046bc, CIN = 0x0, and Opcode = 0x1b; Expected OUT = 0x7, Actual OUT = 0x7bf2a
+# UVM_ERROR ../tb/scoreboard.sv(83) @ 745000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB] Mismatched 
+#             Wrong value of OUT, for inputs A = 0x4b5259b6, B = 0x4633a900, CIN = 0x0, and Opcode = 0x0; Expected OUT = 0xb4ada649, Actual OUT = 0xb4aca649
+# UVM_ERROR ../tb/scoreboard.sv(70) @ 755000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB]  
+#             Wrong value of COUT, for inputs A = 0x59c647b9, B = 0x65160ea3, CIN = 0x0, and Opcode = 0x16; Expected COUT = 0x1, Actual COUT = 0x0
+# UVM_ERROR ../tb/scoreboard.sv(83) @ 765000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB] Mismatched 
+#             Wrong value of OUT, for inputs A = 0x3429ff84, B = 0xd6d9f917, CIN = 0x0, and Opcode = 0x0; Expected OUT = 0xcbd6007b, Actual OUT = 0xcbd7007b
+# UVM_ERROR ../tb/scoreboard.sv(76) @ 805000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB] Mismatched 
+#             Wrong value of VOUT, for inputs A = 0xbd1d6697, B = 0x85800ecd, CIN = 0x1, and Opcode = 0x14; Expected VOUT = 0x0, Actual VOUT = 0x1
+# UVM_ERROR ../tb/scoreboard.sv(83) @ 865000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB] Mismatched 
+#             Wrong value of OUT, for inputs A = 0xe868e92f, B = 0xe598d5d1, CIN = 0x0, and Opcode = 0x5; Expected OUT = 0xe008c101, Actual OUT = 0x6008c101
+# UVM_ERROR ../tb/scoreboard.sv(70) @ 885000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB]  
+#             Wrong value of COUT, for inputs A = 0xffa44da3, B = 0x126ec517, CIN = 0x1, and Opcode = 0x14; Expected COUT = 0x1, Actual COUT = 0x0
+# UVM_ERROR ../tb/scoreboard.sv(83) @ 915000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB] Mismatched 
+#             Wrong value of OUT, for inputs A = 0x93471a12, B = 0x3d6ce8f1, CIN = 0x0, and Opcode = 0xf; Expected OUT = 0x0, Actual OUT = 0xf0000000
+# UVM_ERROR ../tb/scoreboard.sv(83) @ 925000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB] Mismatched 
+#             Wrong value of OUT, for inputs A = 0xea7e409e, B = 0xd4792718, CIN = 0x1, and Opcode = 0x0; Expected OUT = 0x1581bf61, Actual OUT = 0x1580bf61
+# UVM_ERROR ../tb/scoreboard.sv(83) @ 955000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB] Mismatched 
+#             Wrong value of OUT, for inputs A = 0xf0d622f0, B = 0x2d97e11, CIN = 0x1, and Opcode = 0x0; Expected OUT = 0xf29dd0f, Actual OUT = 0xf28dd0f
+# UVM_ERROR ../tb/scoreboard.sv(70) @ 985000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB]  
+#             Wrong value of COUT, for inputs A = 0x82f086b8, B = 0x2465d7d5, CIN = 0x0, and Opcode = 0x1d; Expected COUT = 0x0, Actual COUT = 0x1
+# UVM_ERROR ../tb/scoreboard.sv(70) @ 995000: uvm_test_top.alu_env_h.alu_scoreboard_h [ALU_SB]  
+#             Wrong value of COUT, for inputs A = 0x27bdb7a0, B = 0x3c36bd9, CIN = 0x1, and Opcode = 0x17; Expected COUT = 0x0, Actual COUT = 0x1
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 995000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :    4
+# UVM_WARNING :    0
+# UVM_ERROR :   41
+# UVM_FATAL :    0
+# ** Report counts by id
+# [ALU_SB]    41
+# [Questa UVM]     2
+# [RNTST]     1
+# [TEST_DONE]     1
+# ** Note: $finish    : /misc/linuxws/packages/mentor_2016/modelsim10.6/modeltech/linux_x86_64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 9950 ns  Iteration: 65  Instance: /top
+# 1
+# Break in Task uvm_pkg/uvm_root::run_test at /misc/linuxws/packages/mentor_2016/modelsim10.6/modeltech/linux_x86_64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430
+# End time: 17:45:06 on Oct 12,2022, Elapsed time: 0:07:20
+# Errors: 0, Warnings: 0
