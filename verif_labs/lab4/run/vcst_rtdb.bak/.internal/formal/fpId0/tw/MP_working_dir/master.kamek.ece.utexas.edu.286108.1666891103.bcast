@@ -1,0 +1,10 @@
+# Master Broadcast File
+time 1666891103
+pid 286108
+log /home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/formal/fpId0/tw/MP_working_dir/cdpl_logs/master.kamek.ece.utexas.edu.286108.log.gz
+tcp 10.157.72.80:33200
+wlog /home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/formal/fpId0/tw/MP_working_dir/cdpl_logs/worker.W1.kamek.ece.utexas.edu.286196.log.gz
+wlog /home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/formal/fpId0/tw/MP_working_dir/cdpl_logs/worker.W2.kamek.ece.utexas.edu.286204.log.gz
+wlog /home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/formal/fpId0/tw/MP_working_dir/cdpl_logs/worker.W3.kamek.ece.utexas.edu.286287.log.gz
+wlog /home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/formal/fpId0/tw/MP_working_dir/cdpl_logs/worker.W4.kamek.ece.utexas.edu.286288.log.gz
+status done

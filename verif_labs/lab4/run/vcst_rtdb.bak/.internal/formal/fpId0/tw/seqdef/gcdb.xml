@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<Global Formal_Problem_Id="0" Normalized="1">
+	<Static>
+		<StaticGC GC_ID="0" GC_Type="1" GC_SubType="1" Prop_Name="_map_output_product" Prop_Type="0" Source_Type="0" Script_Type="0" Structural_Type="0" Coverage_Type="0" Deterministic="1" Hot="1" SamplePS="0" IsMgNames="0" GC_Net="_BMC._BMS.ccId0_exp" Fail_Value="0" Assist_Order="0" Register_Count="0">
+			<Initial_Constraints />
+			<State_Invariance />
+			<Fairness_Constraints />
+			<Non_Deterministic_Registers />
+		</StaticGC>
+		<StaticGC GC_ID="1" GC_Type="1" GC_SubType="1" Prop_Name="_map_output_valid" Prop_Type="0" Source_Type="0" Script_Type="0" Structural_Type="0" Coverage_Type="0" Deterministic="1" Hot="1" SamplePS="0" IsMgNames="0" GC_Net="_BMC._BMS0.ccId1_exp" Fail_Value="0" Assist_Order="0" Register_Count="0">
+			<Initial_Constraints />
+			<State_Invariance />
+			<Fairness_Constraints />
+			<Non_Deterministic_Registers />
+		</StaticGC>
+		<StaticGC GC_ID="2" GC_Type="2" GC_SubType="0" Prop_Name="asm_spec_cgc_disable_on" Prop_Type="1" Source_Type="1" Script_Type="0" Structural_Type="0" Coverage_Type="0" Deterministic="1" Hot="0" SamplePS="0" IsMgNames="0" GC_Net="" Fail_Value="0" Assist_Order="0" Register_Count="0">
+			<Initial_Constraints />
+			<State_Invariance>
+				<Signal Name="_BMC._BMS1.ccId7_exp" />
+			</State_Invariance>
+			<Fairness_Constraints />
+			<Non_Deterministic_Registers />
+		</StaticGC>
+		<StaticGC GC_ID="3" GC_Type="2" GC_SubType="0" Prop_Name="asm_impl_cgc_disbale_off" Prop_Type="1" Source_Type="1" Script_Type="0" Structural_Type="0" Coverage_Type="0" Deterministic="1" Hot="0" SamplePS="0" IsMgNames="0" GC_Net="" Fail_Value="0" Assist_Order="0" Register_Count="0">
+			<Initial_Constraints />
+			<State_Invariance>
+				<Signal Name="_BMC._BMS2.ccId8_exp" />
+			</State_Invariance>
+			<Fairness_Constraints />
+			<Non_Deterministic_Registers />
+		</StaticGC>
+		<StaticGC GC_ID="4" GC_Type="2" GC_SubType="0" Prop_Name="_map_uninit_cg2_en_out" Prop_Type="1" Source_Type="2" Script_Type="0" Structural_Type="0" Coverage_Type="0" Deterministic="1" Hot="0" SamplePS="0" IsMgNames="0" GC_Net="" Fail_Value="0" Assist_Order="0" Register_Count="0">
+			<Initial_Constraints>
+				<Signal Name="_BMC._BMS3.ccId9_exp" />
+			</Initial_Constraints>
+			<State_Invariance />
+			<Fairness_Constraints />
+			<Non_Deterministic_Registers />
+		</StaticGC>
+		<StaticGC GC_ID="5" GC_Type="2" GC_SubType="0" Prop_Name="_map_uninit_cg3_en_out" Prop_Type="1" Source_Type="2" Script_Type="0" Structural_Type="0" Coverage_Type="0" Deterministic="1" Hot="0" SamplePS="0" IsMgNames="0" GC_Net="" Fail_Value="0" Assist_Order="0" Register_Count="0">
+			<Initial_Constraints>
+				<Signal Name="_BMC._BMS4.ccId10_exp" />
+			</Initial_Constraints>
+			<State_Invariance />
+			<Fairness_Constraints />
+			<Non_Deterministic_Registers />
+		</StaticGC>
+		<StaticGC GC_ID="6" GC_Type="2" GC_SubType="0" Prop_Name="_map_uninit_cg4_en_out" Prop_Type="1" Source_Type="2" Script_Type="0" Structural_Type="0" Coverage_Type="0" Deterministic="1" Hot="0" SamplePS="0" IsMgNames="0" GC_Net="" Fail_Value="0" Assist_Order="0" Register_Count="0">
+			<Initial_Constraints>
+				<Signal Name="_BMC._BMS5.ccId11_exp" />
+			</Initial_Constraints>
+			<State_Invariance />
+			<Fairness_Constraints />
+			<Non_Deterministic_Registers />
+		</StaticGC>
+		<StaticGC GC_ID="7" GC_Type="2" GC_SubType="0" Prop_Name="_map_uninit_go1" Prop_Type="1" Source_Type="2" Script_Type="0" Structural_Type="0" Coverage_Type="0" Deterministic="1" Hot="0" SamplePS="0" IsMgNames="0" GC_Net="" Fail_Value="0" Assist_Order="0" Register_Count="0">
+			<Initial_Constraints>
+				<Signal Name="_BMC._BMS6.ccId12_exp" />
+			</Initial_Constraints>
+			<State_Invariance />
+			<Fairness_Constraints />
+			<Non_Deterministic_Registers />
+		</StaticGC>
+		<StaticGC GC_ID="8" GC_Type="2" GC_SubType="0" Prop_Name="_map_uninit_go2" Prop_Type="1" Source_Type="2" Script_Type="0" Structural_Type="0" Coverage_Type="0" Deterministic="1" Hot="0" SamplePS="0" IsMgNames="0" GC_Net="" Fail_Value="0" Assist_Order="0" Register_Count="0">
+			<Initial_Constraints>
+				<Signal Name="_BMC._BMS7.ccId13_exp" />
+			</Initial_Constraints>
+			<State_Invariance />
+			<Fairness_Constraints />
+			<Non_Deterministic_Registers />
+		</StaticGC>
+		<StaticGC GC_ID="9" GC_Type="2" GC_SubType="0" Prop_Name="_map_uninit_go3" Prop_Type="1" Source_Type="2" Script_Type="0" Structural_Type="0" Coverage_Type="0" Deterministic="1" Hot="0" SamplePS="0" IsMgNames="0" GC_Net="" Fail_Value="0" Assist_Order="0" Register_Count="0">
+			<Initial_Constraints>
+				<Signal Name="_BMC._BMS8.ccId14_exp" />
+			</Initial_Constraints>
+			<State_Invariance />
+			<Fairness_Constraints />
+			<Non_Deterministic_Registers />
+		</StaticGC>
+		<StaticGC GC_ID="10" GC_Type="2" GC_SubType="0" Prop_Name="_map_uninit_go4" Prop_Type="1" Source_Type="2" Script_Type="0" Structural_Type="0" Coverage_Type="0" Deterministic="1" Hot="0" SamplePS="0" IsMgNames="0" GC_Net="" Fail_Value="0" Assist_Order="0" Register_Count="0">
+			<Initial_Constraints>
+				<Signal Name="_BMC._BMS9.ccId15_exp" />
+			</Initial_Constraints>
+			<State_Invariance />
+			<Fairness_Constraints />
+			<Non_Deterministic_Registers />
+		</StaticGC>
+		<StaticGC GC_ID="11" GC_Type="2" GC_SubType="0" Prop_Name="_map_uninit_product" Prop_Type="1" Source_Type="2" Script_Type="0" Structural_Type="0" Coverage_Type="0" Deterministic="1" Hot="0" SamplePS="0" IsMgNames="0" GC_Net="" Fail_Value="0" Assist_Order="0" Register_Count="0">
+			<Initial_Constraints>
+				<Signal Name="_BMC._BMS10.ccId16_exp" />
+			</Initial_Constraints>
+			<State_Invariance />
+			<Fairness_Constraints />
+			<Non_Deterministic_Registers />
+		</StaticGC>
+		<StaticGC GC_ID="12" GC_Type="2" GC_SubType="0" Prop_Name="_map_uninit_stage1" Prop_Type="1" Source_Type="2" Script_Type="0" Structural_Type="0" Coverage_Type="0" Deterministic="1" Hot="0" SamplePS="0" IsMgNames="0" GC_Net="" Fail_Value="0" Assist_Order="0" Register_Count="0">
+			<Initial_Constraints>
+				<Signal Name="_BMC._BMS11.ccId17_exp" />
+			</Initial_Constraints>
+			<State_Invariance />
+			<Fairness_Constraints />
+			<Non_Deterministic_Registers />
+		</StaticGC>
+		<StaticGC GC_ID="13" GC_Type="2" GC_SubType="0" Prop_Name="_map_uninit_stage2" Prop_Type="1" Source_Type="2" Script_Type="0" Structural_Type="0" Coverage_Type="0" Deterministic="1" Hot="0" SamplePS="0" IsMgNames="0" GC_Net="" Fail_Value="0" Assist_Order="0" Register_Count="0">
+			<Initial_Constraints>
+				<Signal Name="_BMC._BMS12.ccId18_exp" />
+			</Initial_Constraints>
+			<State_Invariance />
+			<Fairness_Constraints />
+			<Non_Deterministic_Registers />
+		</StaticGC>
+		<StaticGC GC_ID="14" GC_Type="2" GC_SubType="0" Prop_Name="_map_uninit_stage3" Prop_Type="1" Source_Type="2" Script_Type="0" Structural_Type="0" Coverage_Type="0" Deterministic="1" Hot="0" SamplePS="0" IsMgNames="0" GC_Net="" Fail_Value="0" Assist_Order="0" Register_Count="0">
+			<Initial_Constraints>
+				<Signal Name="_BMC._BMS13.ccId19_exp" />
+			</Initial_Constraints>
+			<State_Invariance />
+			<Fairness_Constraints />
+			<Non_Deterministic_Registers />
+		</StaticGC>
+		<StaticGC GC_ID="15" GC_Type="2" GC_SubType="0" Prop_Name="_map_uninit_stage4" Prop_Type="1" Source_Type="2" Script_Type="0" Structural_Type="0" Coverage_Type="0" Deterministic="1" Hot="0" SamplePS="0" IsMgNames="0" GC_Net="" Fail_Value="0" Assist_Order="0" Register_Count="0">
+			<Initial_Constraints>
+				<Signal Name="_BMC._BMS14.ccId20_exp" />
+			</Initial_Constraints>
+			<State_Invariance />
+			<Fairness_Constraints />
+			<Non_Deterministic_Registers />
+		</StaticGC>
+		<StaticGC GC_ID="16" GC_Type="2" GC_SubType="0" Prop_Name="_map_uninit_valid" Prop_Type="1" Source_Type="2" Script_Type="0" Structural_Type="0" Coverage_Type="0" Deterministic="1" Hot="0" SamplePS="0" IsMgNames="0" GC_Net="" Fail_Value="0" Assist_Order="0" Register_Count="0">
+			<Initial_Constraints>
+				<Signal Name="_BMC._BMS15.ccId21_exp" />
+			</Initial_Constraints>
+			<State_Invariance />
+			<Fairness_Constraints />
+			<Non_Deterministic_Registers />
+		</StaticGC>
+	</Static>
+	<Dynamic>
+		<DynamicGC GC_ID="0" Status="0" Vacuity_Status="0" Witness_Status="0" CEX_Name="" BMC_Depth="0" />
+		<DynamicGC GC_ID="1" Status="0" Vacuity_Status="0" Witness_Status="0" CEX_Name="" BMC_Depth="0" />
+		<DynamicGC GC_ID="2" Status="0" Vacuity_Status="0" Witness_Status="0" CEX_Name="" BMC_Depth="0" />
+		<DynamicGC GC_ID="3" Status="0" Vacuity_Status="0" Witness_Status="0" CEX_Name="" BMC_Depth="0" />
+		<DynamicGC GC_ID="4" Status="0" Vacuity_Status="0" Witness_Status="0" CEX_Name="" BMC_Depth="0" />
+		<DynamicGC GC_ID="5" Status="0" Vacuity_Status="0" Witness_Status="0" CEX_Name="" BMC_Depth="0" />
+		<DynamicGC GC_ID="6" Status="0" Vacuity_Status="0" Witness_Status="0" CEX_Name="" BMC_Depth="0" />
+		<DynamicGC GC_ID="7" Status="0" Vacuity_Status="0" Witness_Status="0" CEX_Name="" BMC_Depth="0" />
+		<DynamicGC GC_ID="8" Status="0" Vacuity_Status="0" Witness_Status="0" CEX_Name="" BMC_Depth="0" />
+		<DynamicGC GC_ID="9" Status="0" Vacuity_Status="0" Witness_Status="0" CEX_Name="" BMC_Depth="0" />
+		<DynamicGC GC_ID="10" Status="0" Vacuity_Status="0" Witness_Status="0" CEX_Name="" BMC_Depth="0" />
+		<DynamicGC GC_ID="11" Status="0" Vacuity_Status="0" Witness_Status="0" CEX_Name="" BMC_Depth="0" />
+		<DynamicGC GC_ID="12" Status="0" Vacuity_Status="0" Witness_Status="0" CEX_Name="" BMC_Depth="0" />
+		<DynamicGC GC_ID="13" Status="0" Vacuity_Status="0" Witness_Status="0" CEX_Name="" BMC_Depth="0" />
+		<DynamicGC GC_ID="14" Status="0" Vacuity_Status="0" Witness_Status="0" CEX_Name="" BMC_Depth="0" />
+		<DynamicGC GC_ID="15" Status="0" Vacuity_Status="0" Witness_Status="0" CEX_Name="" BMC_Depth="0" />
+		<DynamicGC GC_ID="16" Status="0" Vacuity_Status="0" Witness_Status="0" CEX_Name="" BMC_Depth="0" />
+	</Dynamic>
+</Global>

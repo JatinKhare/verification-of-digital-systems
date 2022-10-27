@@ -1,0 +1,104 @@
+
+                                   VC Static 
+
+               Version Q-2020.03-SP2 for linux64 - Aug 31, 2020 
+
+                    Copyright (c) 2010 - 2020 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+restore_session -level default
+
+
+
+
+
+
+
+
+
+MasterSourceFile run.tcl
+#tcl variable to switch to SEQ app mode
+set_fml_appmode SEQ
+#to compile spec and impl design
+analyze -format sverilog -vcs "../design/rtl1cg_bad.v"
+elaborate_seq -spectop mul -impltop mul -same_design
+[Warning] COM_OPT009: 'search_path' has not been set.
+[Warning] COM_OPT010: 'link_library' has not been set.
+
+Warning-[LCA_FEATURES_ENABLED] Usage warning
+  LCA features enabled by '-lca' argument on the command line.  For more 
+  information regarding list of LCA features please refer to Chapter "LCA 
+  features" in the VCS Release Notes
+
+Doing common elaboration 
+Info: Invoking Simon...
+Info: Simon VCS Start
+=======================================================
+VCS CPU Time(s)     :0.15
+SIMON CPU Time(s)   :0.22
+SIMON Total Time(s) :0.09
+Peak Memory(MB)     :330
+=======================================================
+Info: Simon VCS Finished
+Info: Simon call complete 
+Info: Exiting after Simon Analysis 
+Verdi KDB elaboration done and the database successfully generated: 0 error(s), 0 warning(s)
+#reate assert properties for top module outputs,
+#blackbox inputs, abstracted points and assume properties for top module inputs, blackbox
+#outputs, undriven nets.
+map_by_name -exclude "cgc_disable"
+[Info] MAPPING_ENABLED: input, output, blackbox, undriven, abstraction.
+[Info] MAP_BY_NAME_EXCLUDE: Port 'cgc_disable' is not mapped, because it is in the exclude list.
+[Info] MBN_SUMMARY: '5' primary inputs are mapped as assumes.
+[Info] MBN_SUMMARY: '2' primary outputs are mapped as asserts.
+[Info] MBN_SUMMARY: '0' blackbox inputs are mapped as asserts.
+[Info] MBN_SUMMARY: '0' blackbox outputs are mapped as assumes.
+[Info] MBN_SUMMARY: '0' abstraction inputs are mapped as asserts.
+[Info] MBN_SUMMARY: '0' abstraction outputs are mapped as assumes.
+[Info] MBN_SUMMARY: '0' undriven nets are mapped as assumes.
+[Info] MBN_SUMMARY_EXCLUDE: '1' mappings were excluded by the -exclude option.
+create_clock spec.clk -period 100
+create_reset spect.rst -sense low 
+run.tcl:14: [Error] SDC_OBJECT_NONEXIST: Object(s) not found
+	Object(s) 'spect.rst' specified in the sdc command 'create_reset' does not exist
+sim_run -stable 
+[Info] ENVCNSTR_I_INSTR: Instrument Environment Constraints.
+	Constraints are applied to all checks from this point and will be applied across all user tasks.
+[Info] SIM_I_CREATE: Create Simulation Model.
+sim_save_reset
+seq_config -map_uninit -map_x zero
+[Info] SEQ_CONFIG_SUMMARY: Specprefix: spec, Implprefix: impl.
+	Mappings: (Uninit: 1, X: zero, Counters: 0), Recipe: default.
+fvassume asm_spec_cgc_disable_on -expr "spec.cgc_disable==1'b1"
+fvassume asm_impl_cgc_disbale_off -expr "impl.cgc_disable==1'b0"
+
+action aaMonetBanffSavePropDBToStream -reset -summary 1 -trigger
+action aaVerdiWaitAnnotation -trigger
+action aaMonetSetReuseWave -data {}
+action aaMonetBanffSavePropDBToStream -reset -summary 1 -trigger
+report_constant -xml > /home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/verdi/constant.xml ; verdi_cmd verdiVcstConstantReport -xmlFile /home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/verdi/constant.xml
+check_fv
+[Info] MAP_UNINIT: The tool mapped 13 pair(s) of uninitialized registers.
+[Info] REGISTER_MATCH_BY_NAME: Matched 13 registers by name between the two designs.
+	- 0 registers did not match by name between the two designs.
+[Info] FORMAL_I_CREATE: Create Formal Model:seq_top.
+[Warning] POTENTIAL_SETUP_ISSUES: There are potential setup issues. Please run check_fv_setup to confirm.
+	  Reset: 1  Clock: 0  Glitch: 0  Osc_loop: 0  Osc_seq: 0
+[Info] FORMAL_I_RUN: Starting formal verification for check_fv
+	  Id: 0  Goals: 2  Constraints: 20  Block Mode: false
+[Info] APP_LIC_CHKOUT: Checkout 1 app license(s).
+[Info] TW_INFO_MSG: Starting rewrite (rw1_1) command at 2022-10-27::12:24:11.
+[Info] TW_INFO_MSG: Proof rw1_1 has 17167 number of gates.
+[Info] TW_INFO_MSG: Finished rewrite (rw1_1) command in 2 seconds.
+[Info] TW_INFO_MSG: Starting V2 refine (rw1_1) command at 2022-10-27::12:24:14.
+[Info] TW_INFO_MSG: Finished refine (rw1_1) command in 3 seconds.
+=======================================================
+Total Time(S)  :139.94
+CPU Time(S)    :4.43
+Peak Memory(MB):1103
+========================Formal=========================
+Engine Wall Time(S)    :39.05
+Engine Peak Memory(MB) :187
+=======================================================

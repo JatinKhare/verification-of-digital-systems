@@ -1,0 +1,9 @@
+Command Line: /usr/local/packages/synopsys_2020/vc_static/Q-2020.03-SP2/vcs-mx/linux64/bin/elabcom -simvdaidir /home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/design/seq_top.exe.daidir -elab /home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/design/seq_top.exe.daidir/kdb -simflow -topfile /home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/design/seq_top.exe.daidir/.elabcomTopFile -logdir /home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/verdi/elabcomLog -saveLevel -silent +disable_message+C00373 +disable_message+C00371 +disable_message+C00380+C00381 +disable_message+C00388+C00389
+uname(Linux kamek.ece.utexas.edu 3.10.0-1160.76.1.el7.x86_64 #1 SMP Wed Aug 10 16:21:17 UTC 2022 x86_64)
+[INFO] error/warning message 'C00373' has been suppressed.
+[INFO] error/warning message 'C00371' has been suppressed.
+[INFO] error/warning message 'C00380' has been suppressed.
+[INFO] error/warning message 'C00381' has been suppressed.
+[INFO] error/warning message 'C00388' has been suppressed.
+[INFO] error/warning message 'C00389' has been suppressed.
+au time 0.097531 0.017461 0.027416 delta 27451392 27451392 total 133836800 133836800

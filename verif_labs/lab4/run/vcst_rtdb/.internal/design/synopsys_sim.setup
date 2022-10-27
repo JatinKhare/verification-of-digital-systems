@@ -1,0 +1,10 @@
+-- default WORK mapping
+WORK > DEFAULT
+TIMEBASE = PS
+
+-- default WORK mapping
+WORK > DEFAULT
+TIMEBASE = PS
+
+DEFAULT : /home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/design/worklib
+

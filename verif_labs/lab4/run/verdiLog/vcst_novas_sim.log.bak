@@ -1,0 +1,22 @@
+                                   VC Static 
+               Version Q-2020.03-SP2 for linux64 - Aug 31, 2020 
+                    Copyright (c) 2010 - 2020 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+#MasterSourceFile run.tcl
+1
+1
+#tcl variable to switch to SEQ app mode
+set_fml_appmode SEQ
+#to compile spec and impl design
+analyze -format sverilog -vcs "../design/rtl1cg_bad.v"
+elaborate_seq -spectop mul -impltop mul -same_design
+[Warning] COM_OPT009: 'search_path' has not been set.
+[Warning] COM_OPT010: 'link_library' has not been set.
+Warning-[LCA_FEATURES_ENABLED] Usage warning
+  LCA features enabled by '-lca' argument on the command line.  For more 
+  information regarding list of LCA features please refer to Chapter "LCA 
+  features" in the VCS Release Notes
+Doing common elaboration 

@@ -1,0 +1,86 @@
+version: (200506)
+
+available memory: 64M bytes
+used memory: 229376 bytes [need 224K bytes if disable swap]
+
+used block: 14 [memory(14) file(0)]
+                 [ 8K(12) 64K(2) { total 224K bytes } ]
+overhead: (9538) bytes for (14) blocks [Average: (681) bytes/block]
+
+write  => 0(times) 0K(bytes) [0K bytes to file]
+read   => 2(times) 60K(bytes) [5K bytes compressed data from file]
+access => 1316080(times) 10302M(bytes)
+          [hit ratio: 99.9998%]
+
+time: write(0) read(0)  unit: second
+
+swap file directory: (/home/ecelrc/students/jkhare/verif_labs/lab4/run/verdiLog)
+used swap file number: (3)
+
+
+
+swap file manager:
+arrSize: (256)
+idxCnt: (4)
+closeHead: (1)
+closeTail: (3)
+openCnt: (1)
+fid(3): fd(0) fileName(NULL)
+	mode(rb)	hot(1) cool(0) pos(0)
+fid(2): fd(53) fileName(/home/ecelrc/students/jkhare/verif_labs/lab4/run/verdiLog/_swap_0001#-1660268472#280463)
+	size(0) lastModTime(0) curModTime(1666891028)
+	mode(w+b)	hot(3) cool(1) pos(0)
+fid(1): fd(0) fileName(NULL)
+	mode(rb)	hot(2) cool(3) pos(0)
+fid(0): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+Swap system is reset at (Thu Oct 27 12:23:41 2022
+)
+version: (200506)
+
+available memory: 64M bytes
+used memory: 450560 bytes [need 224K bytes if disable swap]
+
+used block: 27 [memory(27) file(0)]
+                 [ 8K(23) 64K(4) { total 440K bytes } ]
+overhead: (9538) bytes for (27) blocks [Average: (353) bytes/block]
+
+write  => 0(times) 0K(bytes) [0K bytes to file]
+read   => 4(times) 120K(bytes) [11K bytes compressed data from file]
+access => 1444320(times) 11323M(bytes)
+          [hit ratio: 99.9997%]
+
+time: write(0) read(0)  unit: second
+
+swap file directory: (/home/ecelrc/students/jkhare/verif_labs/lab4/run/verdiLog)
+used swap file number: (6)
+
+
+
+swap file manager:
+arrSize: (256)
+idxCnt: (7)
+closeHead: (4)
+closeTail: (6)
+openCnt: (3)
+fid(6): fd(1073741825) fileName(/home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/design/seq_top.exe.daidir/kdb.elab++/work.lib++/rtl1cg_bad.v.tdc)
+	size(10991) lastModTime(1666891429) curModTime(1666891429)
+	mode(rb)	hot(0) cool(5) pos(0)
+fid(5): fd(58) fileName(/home/ecelrc/students/jkhare/verif_labs/lab4/run/verdiLog/_swap_0001#-1660268472#280463)
+	size(0) lastModTime(0) curModTime(1666891434)
+	mode(w+b)	hot(6) cool(4) pos(0)
+fid(4): fd(1073741824) fileName(/home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/design/seq_top.exe.daidir/kdb.elab++/work.lib++/_snps_seq_top.sv.tdc)
+	size(554) lastModTime(1666891429) curModTime(1666891429)
+	mode(rb)	hot(5) cool(0) pos(0)
+fid(3): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(2): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(1): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+fid(0): fd(0) fileName(NULL)
+	mode(NULL)	hot(0) cool(0) pos(0)
+==================================================
+mySelf(17a24ef0) pre(17a53f40) next(0)
+version(200506)
+date(Aug 14 2020 02:30:18)

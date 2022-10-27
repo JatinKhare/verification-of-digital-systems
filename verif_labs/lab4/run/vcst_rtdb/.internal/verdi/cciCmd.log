@@ -1,0 +1,15 @@
+12:23:47 : gui:kamek.ece.utexas.edu:42964
+12:23:47 : ___vcstRenameMan
+12:23:48 : MasterSourceFile run.tcl
+12:23:55 : action aaMonetBanffSavePropDBToStream -reset -summary 1 -trigger
+12:23:57 : get_snips -verdi
+12:23:57 : get_blackbox -designs -verdi
+12:23:57 : get_glassbox -verdi
+12:23:57 : get_snips -verdi
+12:23:57 : action aaVerdiWaitAnnotation -trigger
+12:23:57 : action aaMonetSetReuseWave -data {}
+12:23:57 : action aaMonetBanffSavePropDBToStream -reset -summary 1 -trigger
+12:23:58 : report_constant -xml > /home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/verdi/constant.xml ; verdi_cmd verdiVcstConstantReport -xmlFile /home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/verdi/constant.xml
+12:24:01 : ___vcDisplayAbstractSrcFromAutoBBox
+12:24:09 : check_fv
+12:24:10 : ___fvReportGridUsage /home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/verdi/gridUsage.xml1

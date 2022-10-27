@@ -1,0 +1,8 @@
+seqdef : 0 : t1 : _map_output_product : "-resource=3600 -conflict=150000 "
+seqdef : 0 : e1 : _map_output_product : 
+rw1_1 : 0 : d1 : _map_output_product : "-eopts="-mode unreduced -name dcp_ur -topname rw1_1" -resource=3600 -conflict=150000 "
+rw1_1 : 0 : d1 : _map_output_product : "-eopts="-mode regmap -name dcp_A -dcpdepth 0 -nosim 0" -resource=3600 -conflict=150000 "
+rw1_1 : 0 : e1 : _map_output_product : "-resource=50 -conflict=100000 "
+rw1_1 : 1 : d1 : _map_output_valid : "-eopts="-mode unreduced -name dcp_ur -topname rw1_1" -resource=3600 -conflict=150000 "
+rw1_1 : 1 : d1 : _map_output_valid : "-eopts="-mode regmap -name dcp_A -dcpdepth 0 -nosim 0" -resource=3600 -conflict=150000 "
+rw1_1 : 1 : b1 : _map_output_valid : "-resource=50 -conflict=10000 "

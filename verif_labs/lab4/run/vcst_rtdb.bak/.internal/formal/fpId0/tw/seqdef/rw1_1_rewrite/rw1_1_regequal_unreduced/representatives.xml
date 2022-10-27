@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<NodeSet>
+	<Node>impl.cg3.en_out</Node>
+	<Node>spec.go1</Node>
+	<Node>spec.go2</Node>
+	<Node>spec.cg4.en_out</Node>
+	<Node>impl.valid</Node>
+	<Node>spec.go4</Node>
+	<Node>spec.cg2.en_out</Node>
+	<Node>spec.product</Node>
+	<Node>spec.stage1</Node>
+	<Node>impl.stage4</Node>
+	<Node>spec.stage2</Node>
+	<Node>spec.stage3</Node>
+	<Node>impl.go3</Node>
+</NodeSet>

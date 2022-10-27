@@ -1,0 +1,25 @@
+
+                                   VC Static 
+
+               Version Q-2020.03-SP2 for linux64 - Aug 31, 2020 
+
+                    Copyright (c) 2010 - 2020 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+restore_session -level default
+
+
+
+
+
+
+
+
+
+MasterSourceFile run.tcl
+Error: could not open script file "run.tcl" (CMD-015)
+
+<_mx_/>
+Interrupted, cancelling tasks...

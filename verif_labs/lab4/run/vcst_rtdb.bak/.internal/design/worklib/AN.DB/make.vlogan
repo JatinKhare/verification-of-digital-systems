@@ -1,0 +1,12 @@
+
+VLOGAN	= vlogan
+VLOGAN_OPT	= -kdb -sverilog -skip_translate_body +define+SYNTHESIS -q -timescale=1ns/1ns -full64 -full64
+
+all :		_VCSgd_iSf6Jd_1.db \
+
+
+
+_VCSgd_iSf6Jd_1.db :	/home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/formal/_snps_seq_top.sv 
+		${VLOGAN}  ${VLOGAN_OPT} /home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/formal/_snps_seq_top.sv
+
+

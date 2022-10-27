@@ -1,0 +1,20 @@
+rc file Version 1.0
+
+[Design]
+COMPILE_PATH=/home/ecelrc/students/jkhare/verif_labs/lab4/run
+VERDI_HOME=/usr/local/packages/synopsys_2020/vc_static/Q-2020.03-SP2/verdi
+SystemC=FALSE
+UUM=TRUE
+KDB=TRUE
+USE_NOVAS_HOME=FALSE
+COSIM=FALSE
+ENV="SYNOPSYS_SIM_SETUP=/home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/design/synopsys_sim.setup" 
+TOP=seq_top 
+ELAB=TRUE
+SIMV_WRAPPER=FALSE
+[vcs]
+RUN_ELABCOM=unset TURBO_LOG_DIR ;\rm -rf /home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/verdi/elabcomLog ;/usr/local/packages/synopsys_2020/vc_static/Q-2020.03-SP2/vcs-mx/linux64/bin/elabcom -simvdaidir /home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/design/seq_top.exe.daidir  -elab /home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/design/seq_top.exe.daidir/kdb -simflow -topfile /home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/design/seq_top.exe.daidir/.elabcomTopFile -logdir /home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/verdi/elabcomLog -saveLevel -silent +disable_message+C00373 +disable_message+C00371 +disable_message+C00380+C00381 +disable_message+C00388+C00389  >& /dev/null  && echo Success >& /home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/design/seq_top.exe.daidir/.elabcomReport || echo Fail >& /home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/design/seq_top.exe.daidir/.elabcomReport
+
+[Value]
+WREALX=ffff534e50535f58
+WREALZ=ffff534e50535f5a

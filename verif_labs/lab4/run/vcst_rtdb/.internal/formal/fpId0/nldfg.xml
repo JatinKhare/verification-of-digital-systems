@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<aep_glitch_detect />
+<aep_clock_trigger_detect />
+<aep_reset_detect>
+	<aep name="AR:spec.product" alwaysActive="0">
+		<ff name="spec.product" visible="1" />
+		<ff name="spec.go4" visible="1" />
+		<ff name="spec.go3" visible="1" />
+		<ff name="spec.go2" visible="1" />
+		<ff name="spec.go1" visible="1" />
+		<ff name="spec.stage4" visible="1" />
+		<ff name="spec.stage3" visible="1" />
+		<ff name="spec.stage2" visible="1" />
+		<ff name="spec.valid" visible="1" />
+		<ff name="spec.stage1" visible="1" />
+		<ff name="impl.product" visible="1" />
+		<ff name="impl.go4" visible="1" />
+		<ff name="impl.go3" visible="1" />
+		<ff name="impl.go2" visible="1" />
+		<ff name="impl.go1" visible="1" />
+		<ff name="impl.stage4" visible="1" />
+		<ff name="impl.stage3" visible="1" />
+		<ff name="impl.stage2" visible="1" />
+		<ff name="impl.valid" visible="1" />
+		<ff name="impl.stage1" visible="1" />
+	</aep>
+</aep_reset_detect>
+<aep_maxiter_comb>
+	<sccs />
+</aep_maxiter_comb>
+<aep_maxiter_seq>
+	<sccs />
+</aep_maxiter_seq>
+<false_risk_signals />
+<true_risk_signals />

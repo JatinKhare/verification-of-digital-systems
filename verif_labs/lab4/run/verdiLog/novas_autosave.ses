@@ -1,0 +1,77 @@
+@verdi rc file Version 1.0
+[General]
+saveDB = TRUE
+relativePath = FALSE
+saveSingleView = FALSE
+saveNWaveWinId = 
+VerdiVersion = Verdi_Q-2020.03-SP2
+[KeyNote]
+Line1 = Automatic Backup 0
+Line2 = Save Open Database Information: Yes
+Line3 = Path Option: Absolute Paths
+Line4 = Windows Option: All Windows
+[OneSearch]
+isExisted = FALSE
+[SEQ]
+seqXmlFile = /home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/formal/verdiSeqMapping.xml
+seqDebugMode = TRUE
+[TestBench]
+ConstrViewShow = 0
+InherViewShow = 0
+FSDBMsgShow = 0
+AnnotationShow = 0
+Console = FALSE
+powerDumped = 0
+[Verdi_1]
+workMode = FormalVerification
+[Xprop_Option]
+Xprop_Value = tmerge
+[fusa]
+fdb_server = 
+fdb_proj = 
+fdb_campaign = 
+fdb_tool = 
+[hb]
+viewport = 0 0 1470 817 0 0 275 1468
+activeNode = "seq_top.impl"
+activeScope = "seq_top.impl"
+activeFile = "../design/rtl1cg_bad.v"
+interactiveMode = False
+viewType = Source
+simulatorMode = False
+sourceBeginLine = 294
+baMode = True
+srcLineNum = True
+AutoWrap = True
+IdentifyFalseLogic = False
+syncSignal = True
+traceMode = Hierarchical
+showTraceInSchema = True
+paMode = False
+funcMode = False
+powerAwareAnnot = False
+amsAnnot = True
+traceCrossHier = True
+DnDtraceCrossHierOnly = True
+traceIncTopPort = False
+leadingZero = False
+signalPane = False
+userAnnot = False
+userAnnotField = 0
+Scope1 = "seq_top.impl"
+Scope2 = "seq_top"
+multipleSelection = 1 294 2 0 0
+sdfCheckUndef = FALSE
+simFlow = FALSE
+[hb.design]
+importCmd = "-simflow" "-dbdir" "/home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/design/seq_top.exe.daidir" 
+invokeDir = /home/ecelrc/students/jkhare/verif_labs/lab4/run
+[hb.sourceTab.1]
+scope = seq_top.impl
+File = /home/ecelrc/students/jkhare/verif_labs/lab4/design/rtl1cg_bad.v
+Line = 295
+Active = TRUE
+[hb.sourceTab.2]
+scope = seq_top.spec
+File = /home/ecelrc/students/jkhare/verif_labs/lab4/design/rtl1cg_bad.v
+Line = 295

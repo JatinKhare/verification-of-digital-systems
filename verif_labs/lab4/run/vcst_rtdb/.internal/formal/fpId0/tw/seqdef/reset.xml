@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<File version="1">
+	<State>
+		<Pair vector="1'bx" name="spec.cg2.en_out" />
+		<Pair vector="1'bx" name="spec.cg3.en_out" />
+		<Pair vector="1'bx" name="spec.cg4.en_out" />
+		<Pair vector="1'bx" name="spec.go3" />
+		<Pair vector="24'bxxxxxxxxxxxxxxxxxxxxxxxx" name="spec.stage4" />
+		<Pair vector="32'bxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" name="spec.stage2" />
+		<Pair vector="16'bxxxxxxxxxxxxxxxx" name="spec.stage1" />
+		<Pair vector="32'bxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" name="spec.stage3" />
+		<Pair vector="1'bx" name="spec.valid" />
+		<Pair vector="1'bx" name="spec.go4" />
+		<Pair vector="16'bxxxxxxxxxxxxxxxx" name="spec.product" />
+		<Pair vector="1'bx" name="spec.go1" />
+		<Pair vector="1'bx" name="spec.go2" />
+		<Pair vector="1'bx" name="impl.cg2.en_out" />
+		<Pair vector="1'bx" name="impl.cg3.en_out" />
+		<Pair vector="1'bx" name="impl.cg4.en_out" />
+		<Pair vector="32'bxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" name="impl.stage3" />
+		<Pair vector="24'bxxxxxxxxxxxxxxxxxxxxxxxx" name="impl.stage4" />
+		<Pair vector="32'bxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" name="impl.stage2" />
+		<Pair vector="16'bxxxxxxxxxxxxxxxx" name="impl.stage1" />
+		<Pair vector="1'bx" name="impl.valid" />
+		<Pair vector="1'bx" name="impl.go4" />
+		<Pair vector="1'bx" name="impl.go3" />
+		<Pair vector="16'bxxxxxxxxxxxxxxxx" name="impl.product" />
+		<Pair vector="1'bx" name="impl.go1" />
+		<Pair vector="1'bx" name="impl.go2" />
+		<Pair vector="1'b1" name="_BM_CLKGEN_.CSR0_2" />
+	</State>
+	<Input>
+		<Pair vector="8'bxxxxxxxx" name="_BME.impl.op2" />
+		<Pair vector="1'bx" name="_BME.impl.rst" />
+		<Pair vector="1'bx" name="_BME.impl.go" />
+		<Pair vector="1'b1" name="_atZero" />
+		<Pair vector="8'bxxxxxxxx" name="_BME.impl.op1" />
+		<Pair vector="1'bx" name="impl.cgc_disable" />
+		<Pair vector="1'bx" name="impl.clk" />
+		<Pair vector="1'bx" name="impl.go" />
+		<Pair vector="8'bxxxxxxxx" name="impl.op1" />
+		<Pair vector="8'bxxxxxxxx" name="impl.op2" />
+		<Pair vector="1'bx" name="impl.rst" />
+		<Pair vector="1'bx" name="spec.cgc_disable" />
+		<Pair vector="1'bx" name="spec.clk" />
+		<Pair vector="1'bx" name="spec.go" />
+		<Pair vector="8'bxxxxxxxx" name="spec.op1" />
+		<Pair vector="8'bxxxxxxxx" name="spec.op2" />
+		<Pair vector="1'bx" name="spec.rst" />
+	</Input>
+</File>

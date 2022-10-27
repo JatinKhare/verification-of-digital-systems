@@ -1,0 +1,11 @@
+#tcl variable to switch to SEQ app mode
+set_fml_appmode SEQ
+
+#to compile spec and impl design
+analyze -format sverilog -vcs "../design/rtl1cg_bad.v"
+elaborate_seq -spectop mul -impltop mul -same_design
+
+#reate assert properties for top module outputs,
+#blackbox inputs, abstracted points and assume properties for top module inputs, blackbox
+#outputs, undriven nets.
+map_by_name -exclude "cgc_disable"

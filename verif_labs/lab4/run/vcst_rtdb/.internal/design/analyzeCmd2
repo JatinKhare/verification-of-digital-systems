@@ -1,0 +1,1 @@
+-sverilog  -Xmonet  -skip_translate_body  +define+SYNTHESIS -q  -error=noMPD   /home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/formal/_snps_seq_top.sv -timescale=1ns/1ns -XVSILangChk=/home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/design/.read_log/readlog_1.log 

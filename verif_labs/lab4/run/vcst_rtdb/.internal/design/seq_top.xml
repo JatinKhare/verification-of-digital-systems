@@ -1,0 +1,46 @@
+<SVI>
+<SVI_SIMON>
+  <option data="full_hier"/>
+  <option data="vcstaticStabilityMode=1"/>
+  <option data="circWriteFile=/home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/design/seq_top.scm"/>
+  <option data="outputWorkDir=/home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/design"/>
+  <option data="vsiLogDir=/home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/logs"/>
+  <option data="exitPostAnalysis"/>
+  <option data="noRemoveConstants"/>
+  <option data="2valued"/>
+  <option data="preserveSigs"/>
+  <option data="trackLocations"/>
+  <option data="oneDeep"/>
+  <option data="nxgAutoGlassBox"/>
+  <option data="wholeSignalsInSupport"/>
+  <option data="directIfFull"/>
+  <option data="designAttribute"/>
+  <option data="deleteSva"/>
+  <option data="useOrigVhdlGenBracket"/>
+  <option data="ndmerge"/>
+  <option data="noSkipSimMemModels"/>
+  <option data="contFeedBackToLatch"/>
+  <option data="genPrimHierarchy"/>
+  <option data="useDot"/>
+  <option data="enableSVAMarking"/>
+  <option data="markRawSigs"/>
+  <option data="treatInitialBlockAsNonSynth=0"/>
+  <option data="top=seq_top"/>
+  <option data="addInputResolution"/>
+  <option data="disableAEPs"/>
+  <option data="dumpVsiLib"/>
+  <option data="generateDontCares"/>
+  <option data="q"/>
+  <option data="buildTop=1"/>
+  <option data="j=4"/>
+  <option data="alwaysGenLogicForPartialCombCell"/>
+  <option data="memLatchLimit=16"/>
+  <option data="doControlIdentify=1"/>
+  <option data="numWallSeconds=3000"/>
+  <option data="ignoreCoverage"/>
+  <option data="fastScmRead"/>
+  <option data="loadBasicDbViews"/>
+</SVI_SIMON>
+<SVI_VCS>
+</SVI_VCS>
+</SVI>

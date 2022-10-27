@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<GlSolverReport>
+	<v1>
+		<GlSolver>
+			<Name>e2</Name>
+			<GlGoal>
+				<GlGoalId>0</GlGoalId>
+				<GlStatPair>
+					<GlStatName>Status</GlStatName>
+					<GlStatValue>PROVEN</GlStatValue>
+				</GlStatPair>
+				<GlStatPair>
+					<GlStatName>Time</GlStatName>
+					<GlStatValue>1</GlStatValue>
+				</GlStatPair>
+			</GlGoal>
+		</GlSolver>
+	</v1>
+</GlSolverReport>

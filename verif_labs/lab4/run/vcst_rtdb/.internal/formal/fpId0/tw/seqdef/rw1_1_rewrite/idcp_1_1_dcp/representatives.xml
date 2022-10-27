@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<NodeSet>
+	<Node>spec.go1</Node>
+	<Node>spec.go2</Node>
+	<Node>impl.valid</Node>
+	<Node>spec.go4</Node>
+	<Node>spec.stage1</Node>
+	<Node>impl.go3</Node>
+</NodeSet>

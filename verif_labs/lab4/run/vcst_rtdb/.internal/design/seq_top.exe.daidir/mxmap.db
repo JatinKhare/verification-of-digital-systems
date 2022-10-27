@@ -1,0 +1,2 @@
+WORK ./vcst_rtdb/.internal/design/worklib 2 DEFAULT
+DEFAULT ./vcst_rtdb/.internal/design/worklib 2 -

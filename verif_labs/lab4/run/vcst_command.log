@@ -1,0 +1,875 @@
+#@ # 
+#@ # Running vcst Version Q-2020.03-SP2 for linux64 -- Aug 31, 2020
+#@ # Date:   Thu Oct 27 12:23:46 2022
+#@ # Run by: jkhare@kamek.ece.utexas.edu
+#@ 
+
+#@ # -- Starting source /usr/local/packages/synopsys_2020/vc_static/Q-2020.03-SP2/auxx/monet/tcl/read.tcl
+
+#@ #Renamed orginal open,close,read tcl command to prevent crash on reading large file
+#@ #Star : 9001363498
+#@ rename -force open _original_open
+#@ rename -force close _original_close
+#@ rename -force read _original_read
+#@ 
+#@ rename -force sh _orig_sh
+#@ # new open command , behaviour is same as default open command only diffrence is we creates a map of file channel and file name
+#@ proc sh {args} {
+#@     if {[string first "&" $args] == -1} {
+#@         if { [is_gui_connected] == "1" } {
+#@             set cmd [lindex $args 0]
+#@             action aaMonetShCmd -reset -start 1 -cmd $cmd -trigger
+#@         }
+#@     }
+#@     set p 0
+#@     set res [ catch { set p [eval _orig_sh $args] }  result]
+#@     if {[string first "&" $args] == -1} {
+#@         if { [is_gui_connected] == "1" } {
+#@             action aaMonetShCmd -reset -finish 1 -trigger
+#@         }
+#@     }
+#@     if {$res} {
+#@         set cmd [lindex $args 0]
+#@         if {$cmd == "grep"} {
+#@             global env
+#@             set x [info exists ::env(MONET_REGRESS)]
+#@             set y [info exists ::env(REGRESSION_MODE)] 
+#@             set z [info exists ::env(GUI_REGRESSION_MODE)] 
+#@             set RegMode ""
+#@             if {$x} {
+#@                 append RegMode $::env(MONET_REGRESS)
+#@             } elseif {$y} {
+#@                 append RegMode $::env(REGRESSION_MODE)
+#@             } elseif {$z} {
+#@                 append RegMode $::env(GUI_REGRESSION_MODE)
+#@             }
+#@             if {$RegMode == "1"} {
+#@                 return -code error
+#@             } else {
+#@                 return -code error $result
+#@             }
+#@         } else {
+#@             return -code error $result
+#@         }
+#@     }
+#@     return $p
+#@ }
+#@ # new open command , behaviour is same as default open command only diffrence is we creates a map of file channel and file name
+#@ proc open {file_name args} {
+#@     # fileForChannel is map which stores file_name mapped with file Channel
+#@     global fileForChannel
+#@     set channel [eval [list _original_open $file_name] $args]
+#@     set fileForChannel($channel) $file_name
+#@     return $channel
+#@ }
+#@ #new close command, behaviour is same as default close command only diffrence is we remove the entries from fileForChannel map for given file channel
+#@ proc close {channel} {
+#@     global fileForChannel
+#@     catch {unset fileForChannel($channel)}
+#@     _original_close $channel
+#@ }
+#@ #new read command, behaviour is same as default read command only diffrence is we first check the size of the file before reading it and if file_size> 1GB we don't read it as it causes crash
+#@ proc read { args} {
+#@     variable file_channel
+#@     set size_given 0
+#@     set option_given 0
+#@     variable options
+#@     set read_size ""
+#@     #Check if option is given and extact options ,file_channel , read_size from args 
+#@     foreach arg $args {
+#@         if {[string index $arg 0] == "-" } {
+#@             if {$option_given == 0} {
+#@                 set options $arg
+#@                 set option_given 1
+#@             } else  {
+#@                 append options $arg
+#@             }
+#@         } elseif { [string is integer $arg]} {
+#@             set read_size $arg
+#@             set size_given 1
+#@         } else {
+#@             set file_channel $arg
+#@         }
+#@     }
+#@     global fileForChannel
+#@     variable file_size
+#@     #Catch all exeception while checking the file size
+#@     #star:9001390192 
+#@     if {[catch {set file_size [file size $fileForChannel($file_channel)]}]} {
+#@     } else {
+#@         if { (($file_size > 1024000000)&&(($size_given == 0)||($read_size > 1024000000)))} {
+#@             puts "\[ERROR\] Unable to read file of size > 1GB"
+#@             return 0
+#@         }
+#@     }
+#@     if { $option_given == 0 } {
+#@         if { $size_given == 1 } {
+#@             return [_original_read $file_channel $read_size]
+#@         } else {
+#@             return [_original_read $file_channel]
+#@         }
+#@     } else {
+#@         if { $size_given == 1 } {
+#@             return [_original_read $options $file_channel $read_size]
+#@         } else {
+#@             return [_original_read $options $file_channel]
+#@         }
+#@     }
+#@ }
+#@ # -- End source /usr/local/packages/synopsys_2020/vc_static/Q-2020.03-SP2/auxx/monet/tcl/read.tcl
+
+#@ # -- Starting source /usr/local/packages/synopsys_2020/vc_static/Q-2020.03-SP2/auxx/monet/tcl/get_instances.tcl
+
+#@ proc get_instances { args } {
+#@ 
+#@     if {$args == "-help"} {
+#@         puts "Usage: get_instances  # returns all instances"
+#@         puts "       -of_module   # returns instances of the given module"
+#@         puts "       -module   # returns instances under the given module including the instances of the given module"
+#@         return
+#@     }
+#@ 
+#@     set argc [llength $args]
+#@     if {$argc == 0} {
+#@         set inst [get_cells -hier -include_top -filter "is_operator==false" ]
+#@         return $inst
+#@     } else {
+#@         if {$argc == 1} {
+#@             set arg [lindex $args 0]
+#@             if {$arg == "-module"} {
+#@                 puts "Error: module name not given."
+#@             }
+#@             if {$arg == "-of_module"} {
+#@                 puts "Error: of_module name not given."
+#@             }
+#@             return
+#@         }
+#@     }
+#@ 
+#@     if {$argc != 2} {
+#@         set inmod [lsearch $args "-module"]
+#@         set inofmod [lsearch $args "-of_module"]
+#@         if {$inmod != -1 && $inofmod != -1} {
+#@             puts "Error: -module and -of_module options together are not supported."
+#@             return
+#@         }
+#@         puts "Error: This command only accepts only one of 2 options, -of_module <module_name> or -module <module_name>"
+#@         return
+#@     }
+#@ 
+#@     set module [lindex $args 1]
+#@     if {[lindex $args 0] == "-module"} {
+#@         set filter "is_operator==false && orig_ref_name==$module"
+#@         set inst [get_cells -hier -include_top  -filter $filter]
+#@         set i 0
+#@         foreach_in_collection in $inst { 
+#@             set i [expr {$i + 1}]
+#@             set name [get_object_name $in] 
+#@             set filter "is_operator==false && full_name=~$name*"
+#@             if {$i == 1}  {
+#@                 set coll [get_cells -hier -include_top -filter $filter -quiet]
+#@             } else {
+#@                 append_to_collection coll [get_cells -hier -include_top -filter $filter -quiet]
+#@             }
+#@         }
+#@ 
+#@         set size [sizeof_collection $inst]
+#@         if {$size > 0} {
+#@             return $coll
+#@         } else {
+#@             return 
+#@         }
+#@     }
+#@ 
+#@     if {[lindex $args 0] == "-of_module"} {
+#@         set filter "is_operator==false && orig_ref_name==$module"
+#@         set inst [get_cells -include_top -hier -filter $filter ]
+#@         return $inst
+#@     }
+#@     puts "Error: unkown options given."
+#@ }
+#@ create_proc_command get_instances -info "get all instances" -command_group "Database"
+#@ 
+#@ # -- End source /usr/local/packages/synopsys_2020/vc_static/Q-2020.03-SP2/auxx/monet/tcl/get_instances.tcl
+
+restore_session -level default
+#@ # -- Starting source /usr/local/packages/synopsys_2020/vc_static/Q-2020.03-SP2/auxx/monet/tcl/lowpower.tcl
+
+#@ # Sourced by vcst at startup for low power applications.
+#@ # The original goal was to avoid "source" of any file here and
+#@ # rely on autoload.  But, to make commands visible in "help",
+#@ # use source -direct and create_proc_command instead.
+#@ 
+#@ lappend ::auto_path $env(VC_STATIC_HOME)/auxx/monet/tcl
+#@ 
+#@ set path "$env(VC_STATIC_HOME)/auxx/monet/tcl"
+#@ source -direct $path/configure_lp_electrical.tcl
+#@ source -direct $path/migrate_waivers.tcl
+#@ source -direct $path/analyze_waiver_correctness.tcl
+#@ source -direct $path/lowpower_schematic.tcl
+#@ action aaMonetActionReplayMode -trigger
+
+#@ 
+
+#@ waitfor aaMonetViewDone:0
+
+#@ 
+
+#@ source -direct $path/lowpower_vars.tcl
+#@ source -direct $path/get_violation_info.tcl
+#@ source -direct $path/report_violation.tcl
+#@ source -direct $path/configure_lp_abstraction.tcl
+#@ source -direct $path/mark_lp_verilog_abstraction.tcl
+#@ source -direct $path/vclp_waive_sam_violations.tcl
+#@ source -direct $path/lp_smart_relink.tcl
+#@ source -direct $path/lowpower_violation.tcl
+#@ source -direct $path/icc2_integration.tcl
+#@ 
+#@ # These are not LP specific but there is no generic home
+#@ source -direct $path/readmsg_operations.tcl
+#@ source -direct $path/merge_database.tcl
+#@ source -direct $path/tag_operations.tcl
+#@ source -direct $path/add_lp_violation.tcl
+#@ 
+#@ # 9001090682: replace builtin report_app_var with new one supporting -app
+#@ rename -force report_app_var old_report_app_var
+#@ proc report_app_var { args } { eval report_vcst_var $args }
+#@ # -- End source /usr/local/packages/synopsys_2020/vc_static/Q-2020.03-SP2/auxx/monet/tcl/lowpower.tcl
+
+#@ # -- Starting source /usr/local/packages/synopsys_2020/vc_static/Q-2020.03-SP2/auxx/monet/tcl/dft_scripts/dft_default_settings.tcl
+
+#@ # This tcl procedure configure minimal settings for dft check correctness.
+#@ 
+#@ proc dft_default_settings { args } {
+#@     if {$args == "-help"} {
+#@         #puts "Usage: dft_default_settings # Configure minimal settings for dft check correctness"
+#@         return
+#@     }
+#@     # Simon and Verdi synthesis are diff and analysis was done for Simon
+#@     # synthsized ciruit which is NLDM hence schematic of NLDM should be
+#@     # shown to user
+#@     set_app_var enable_nldm_nschema true
+#@ 
+#@     # its a SpyGlass feature
+#@     set_app_var enable_schematic_clouds true
+#@ 
+#@     # app-var to enable ldpc
+#@     set_app_var enable_ldpc_transform true
+#@     
+#@     # app-var to enable fdpc
+#@     set_app_var enable_fdpc_transform true
+#@     
+#@     set_app_var enable_vhdl_original_names true
+#@     
+#@     set_app_var generate_elab_summary_report true
+#@     
+#@     # app-var to enable naming infra to support define_name_rules
+#@     set_app_var enable_new_name_interface true
+#@     
+#@     # app-var to infer pin direction of unresolved modules
+#@     set_app_var port_coercion autoblackbox
+#@     
+#@     # app-var to remove temporary flops
+#@     set_app_var enable_remove_temporary_flops true
+#@ }
+#@ 
+#@ # Make the above command show up in "help"
+#@ set txt "Configure minimal settings for dft check correctness"
+#@ set group "DFT"
+#@ create_proc_command dft_default_settings -info $txt -command_group $group -hidden
+#@ # -- End source /usr/local/packages/synopsys_2020/vc_static/Q-2020.03-SP2/auxx/monet/tcl/dft_scripts/dft_default_settings.tcl
+
+#@ # -- Starting source /usr/local/packages/synopsys_2020/vc_static/Q-2020.03-SP2/auxx/monet/tcl/cdc_scripts/cdc_default_settings.tcl
+
+#@ # This tcl procedure configure minimal settings for cdc check correctness.
+#@ 
+#@ proc cdc_default_settings { args } {
+#@     if {$args == "-help"} {
+#@         #puts "Usage: cdc_default_settings # Configure minimal settings for cdc check correctness"
+#@         return
+#@     }
+#@     # Simon and Verdi synthesis are diff and analysis was done for Simon
+#@     # synthsized ciruit which is NLDM hence schematic of NLDM should be
+#@     # shown to user
+#@     set_app_var enable_nldm_nschema true
+#@     # its a SpyGlass feature
+#@     set_app_var enable_schematic_clouds true
+#@     # app-var to enable ldpc
+#@     set_app_var enable_ldpc_transform true
+#@     # app-var to enable fdpc
+#@     set_app_var enable_fdpc_transform true
+#@     # app-var to enable sequential constant propagation
+#@     set_app_var case_analysis_sequential_propagation true
+#@     # app-var to handle constants properly for FDPC
+#@     # propagate zero if only reset and D=0, propagation one if only set and D=1
+#@     set_app_var async_reset_nonseq_const_analysis true
+#@     # app-var to enable traversal for single input single output blackboxes
+#@     set_app_var assume_siso_bbox_pins_connected true
+#@     # app-var to enable libcell-divedown
+#@     set_app_var enable_libcell_divedown true
+#@     # app-var to disable path from inout to out
+#@     #set_app_var disable_path_from_inout_to_out true
+#@     set_app_var enable_vhdl_original_names true
+#@     set_app_var generate_elab_summary_report true
+#@     # app-var to enable naming infra to support define_name_rules
+#@     set_app_var enable_new_name_interface true
+#@     #constant propagation through cgc
+#@     set_app_var case_analysis_propagate_through_icg true
+#@     # app-var to infer pin direction of unresolved modules
+#@     set_app_var port_coercion autoblackbox
+#@     # app-var to remove temporary flops
+#@     set_app_var enable_remove_temporary_flops true
+#@     # app-var to optimize constant path for SAM abstraction
+#@     set_app_var sam_const_optimization_level 7
+#@ 
+#@     #reset propagation configuration with RST2Q Enabled.
+#@     configure_reset_propagation -propagate_through_reset_pin true
+#@ 
+#@     set_app_var constant_connectvity_cache true
+#@     # enable internal diagnostic based on environment variable
+#@     if { [info exists env(SNPS_CDC_INTERNAL_DIAGNOSTICS)] } {
+#@         set diagnostic [ getenv SNPS_CDC_INTERNAL_DIAGNOSTICS ]
+#@ 
+#@         if {$diagnostic & 1 } {
+#@             puts "Disabling CDC Crossing Caching"
+#@             set_app_var cdc_word_level_cache false
+#@             set_app_var cdc_bit_level_cache false
+#@         }
+#@ 
+#@         if {$diagnostic & 2} {
+#@             puts "Enable Clock/Reset Consistency checks"
+#@             setenv SNPS_CDC_INTERNAL_DEBUG_DIAGNOSTICS 1
+#@         }
+#@ 
+#@         if {$diagnostic & 4} {
+#@             puts "Enabling Reverse Iterator for Crossing Consistency"
+#@             check_crossing_consistency -test_inputs
+#@         }
+#@     }
+#@ }
+#@ 
+#@ # Make the above command show up in "help"
+#@ set txt "Configure minimal settings for cdc check correctness"
+#@ set group "CDC"
+#@ create_proc_command cdc_default_settings -info $txt -command_group $group -hidden
+#@ 
+#@ if {[info exists env(SNPS_VCSTATIC_INTERNAL_ENABLE_PARALLEL_CROSSING)]} {
+#@     enable_parallel_cdc -parallel_crossing
+#@ }
+#@ 
+#@ source $env(VC_STATIC_HOME)/auxx/monet/tcl/cdc_scripts/waive_block_violations.tcl
+#@ # -- Starting source /usr/local/packages/synopsys_2020/vc_static/Q-2020.03-SP2/auxx/monet/tcl/cdc_scripts/waive_block_violations.tcl
+
+#@ 
+#@ proc waive_cdc_block_violations { args } {
+#@ 
+#@     parse_proc_arguments -args $args myArg
+#@ 
+#@     set helpOpt                   [int_get_argument myArg -help 0]
+#@     set blockModuleNameList       [int_get_argument myArg -blocks ""]
+#@     set blockInstNameList         [int_get_argument myArg -block_instances ""]
+#@ 
+#@     if {$helpOpt==1} {
+#@         return "0"
+#@     }
+#@ 
+#@     if {$blockModuleNameList != "" && $blockInstNameList != ""} {
+#@         puts "Error: -blocks and -block_instances are mutually exclusive options"
+#@         return 0
+#@     }
+#@ 
+#@     if {$blockModuleNameList == "" && $blockInstNameList == ""} {
+#@         puts "Error: Argument to both -blocks and -block_instances options cannot be empty"
+#@         return 0
+#@     }
+#@ 
+#@     set retVal 1
+#@ 
+#@     set waiverFileName [file join [ runtime_db -cdc ] "sam_waiver.tcl" ]
+#@     set fileHandle     [open $waiverFileName w]
+#@ 
+#@     if {$blockModuleNameList != "" && [llength $blockModuleNameList] != 0} {
+#@ 
+#@         foreach block $blockModuleNameList {
+#@             apply_cdc_block_waiver $block $fileHandle
+#@         }
+#@     }
+#@ 
+#@     if {$blockInstNameList != "" && [llength $blockInstNameList] != 0} {
+#@ 
+#@         set waiveId 0
+#@ 
+#@         foreach blockInst $blockInstNameList {
+#@             set instCollection [get_cells -quiet -exact $blockInst ]
+#@ 
+#@             if {[sizeof_collection $instCollection ] == 0 } {
+#@                 set instCollection [get_cells -quiet $blockInst ]
+#@             }
+#@ 
+#@             if {[sizeof_collection $instCollection ] != 0 } {
+#@ 
+#@                 foreach_in_collection it $instCollection {
+#@                     set instName [get_attribute $it full_name]
+#@                     set dsgn [get_designs -quiet  -of_objects $it ]
+#@                     set dsgnName [get_attribute $dsgn name]
+#@                     apply_cdc_waiver_with_container_inst $instName "waive_${dsgnName}_${waiveId}" $fileHandle
+#@                     incr waiveId
+#@                 }
+#@ 
+#@             } else {
+#@                 puts "Error: failed to find hierarchical instance of exact name '$blockInst'"
+#@             }
+#@         }
+#@     }
+#@ 
+#@     close $fileHandle
+#@ 
+#@     #source -echo -verbose $waiverFileName
+#@     source  $waiverFileName
+#@ 
+#@     return $retVal
+#@ }
+#@ 
+#@ 
+#@ proc apply_cdc_block_waiver {blockName fileHandle} {
+#@ 
+#@     if {[string length $blockName] == 0} {
+#@         return 0
+#@     }
+#@ 
+#@     set designCollection [get_designs -quiet -hierarchical -filter "orig_name==$blockName"]
+#@ 
+#@     if {[sizeof_collection $designCollection] != 0} {
+#@         foreach_in_collection hsIt $designCollection {
+#@             set hsName [get_attribute $hsIt name]
+#@             set id 0
+#@             foreach_in_collection it [get_cells -quiet -hier -filter "ref_name==$hsName"] {
+#@                 set instName [get_attribute $it full_name]
+#@                 apply_cdc_waiver_with_container_inst $instName "waive_${hsName}_${id}" $fileHandle
+#@                 incr id
+#@             }
+#@         }
+#@     }
+#@ 
+#@     return 1
+#@ }
+#@ 
+#@ 
+#@ proc waive_rdc_block_violations { args } {
+#@ 
+#@     parse_proc_arguments -args $args myArg
+#@ 
+#@     set helpOpt                   [int_get_argument myArg -help 0]
+#@     set blockModuleNameList       [int_get_argument myArg -blocks ""]
+#@     set blockInstNameList         [int_get_argument myArg -block_instances ""]
+#@ 
+#@     if {$helpOpt==1} {
+#@         return "0"
+#@     }
+#@ 
+#@     if {$blockModuleNameList != "" && $blockInstNameList != ""} {
+#@         puts "Error: -blocks and -block_instances are mutually exclusive options"
+#@         return 0
+#@     }
+#@ 
+#@     if {$blockModuleNameList == "" && $blockInstNameList == ""} {
+#@         puts "Error: Argument to both -blocks and -block_instances options cannot be empty"
+#@         return 0
+#@     }
+#@ 
+#@     set retVal 1
+#@ 
+#@     if {$blockModuleNameList != "" && [llength $blockModuleNameList] != 0} {
+#@ 
+#@         foreach block $blockModuleNameList {
+#@             apply_rdc_block_waiver $block
+#@         }
+#@     }
+#@ 
+#@     if {$blockInstNameList != "" && [llength $blockInstNameList] != 0} {
+#@ 
+#@         set waiveId 0
+#@ 
+#@         foreach blockInst $blockInstNameList {
+#@             set instCollection [get_cells -quiet -hier -exact $blockInst ]
+#@ 
+#@             if {[sizeof_collection $instCollection ] != 0 } {
+#@ 
+#@                 foreach_in_collection it $instCollection {
+#@                     set instName [get_attribute $it full_name]
+#@                     apply_rdc_waiver_with_container_inst $instName "waive_${instName}_${waiveId}"
+#@                     incr waiveId
+#@                 }
+#@ 
+#@             } else {
+#@                 puts "Error: failed to find hierarchical instance of exact name '$blockInst'"
+#@             }
+#@         }
+#@     }
+#@ 
+#@     return $retVal
+#@ }
+#@ 
+#@ 
+#@ proc apply_rdc_block_waiver {blockName} {
+#@ 
+#@     if {[string length $blockName] == 0} {
+#@         return 0
+#@     }
+#@ 
+#@     set designCollection [get_designs -quiet -hierarchical -filter "orig_name==$blockName"]
+#@ 
+#@     if {[sizeof_collection $designCollection] != 0} {
+#@         foreach_in_collection hsIt $designCollection {
+#@             set hsName [get_attribute $hsIt name]
+#@             set id 0
+#@             foreach_in_collection it [get_cells -quiet -hier -filter "ref_name==$hsName"] {
+#@                 set instName [get_attribute $it full_name]
+#@                 apply_rdc_waiver_with_container_inst $instName "waive_${hsName}_${id}"
+#@                 incr id
+#@             }
+#@         }
+#@     }
+#@ 
+#@     return 1
+#@ }
+#@ 
+#@ 
+#@ proc apply_cdc_waiver_with_container_inst {instName waiverName fileHandle} {
+#@ 
+#@     if {([string length $instName] == 0) || ([string length $waiverName] == 0)} {
+#@         return 0
+#@     }
+#@ 
+#@     puts $fileHandle "waive_cdc -add \"${waiverName}_1\" -filter { ContainerInstance=~$instName* }"
+#@     puts $fileHandle "waive_cdc -add \"${waiverName}_2\" -tag SYNCCDC_DATAPATH_FULL -filter { DestObject=~$instName* AND SrcObject=~$instName* }"
+#@     puts $fileHandle "waive_cdc -add \"${waiverName}_3\" -tag SYNCCDC_DATAPATH_PARTIAL -filter { DestObject=~$instName* AND SrcObject=~$instName* }"
+#@ 
+#@     return 1
+#@ }
+#@ 
+#@ proc apply_rdc_waiver_with_container_inst {instName waiverName} {
+#@ 
+#@     if {([string length $instName] == 0) || ([string length $waiverName] == 0)} {
+#@         return 0
+#@     }
+#@ 
+#@     set filter_opt1 "DestObject=~$instName*"
+#@     set filter_opt2 "SrcObject=~$instName*"
+#@ 
+#@     waive_rdc -add "${waiverName}_1" -filter "ContainerInstance=~$instName*"
+#@     waive_rdc -add "${waiverName}_2" -tag {RDC_CORRUPT_BLOCKED RDC_CLOCK_CORRUPT_BLOCKED} -filter "$filter_opt1 AND $filter_opt2"
+#@     waive_rdc -add "${waiverName}_3" -tag {RDC_CORRUPT_POTENTIAL RDC_CLOCK_CORRUPT_POTENTIAL} -filter "$filter_opt1 AND $filter_opt2"
+#@     return 1
+#@ }
+#@ 
+#@ 
+#@ set waive_cdc_block_help_text "Apply waiver to all violation with block instance as container instance"
+#@ set waive_rdc_block_help_text $waive_cdc_block_help_text
+#@ 
+#@ create_proc_command waive_cdc_block_violations -info $waive_cdc_block_help_text     -command_group $cmd_group -hide_body     -define_args {
+#@         {-help "Prints help text for this command" "" boolean optional}
+#@         {-blocks "list of block names" "<block_names>" string optional}
+#@         {-block_instances "list of block instance names" "<instance_names>" string optional}
+#@     }
+#@ 
+#@ create_proc_command waive_rdc_block_violations -info $waive_rdc_block_help_text     -command_group $cmd_group -hide_body     -define_args {
+#@         {-blocks "list of block names" "<block_names>" string optional}
+#@         {-block_instances "list of block instance names" "<instance_names>" string optional}
+#@     }
+#@ 
+#@ # -- End source /usr/local/packages/synopsys_2020/vc_static/Q-2020.03-SP2/auxx/monet/tcl/cdc_scripts/waive_block_violations.tcl
+
+#@ source $env(VC_STATIC_HOME)/auxx/monet/tcl/cdc_scripts/characterize_blocks.tcl
+#@ # -- Starting source /usr/local/packages/synopsys_2020/vc_static/Q-2020.03-SP2/auxx/monet/tcl/cdc_scripts/characterize_blocks.tcl
+
+#@ # Tcl proc to characterize block pins with top level constraints for top-down constraints migration.
+#@ # This proc should get called after set_characterize_blocks and before write_block_constraints.
+#@ 
+#@ 
+#@ proc characterize_blocks { args } {
+#@ 
+#@     parse_proc_arguments -args $args myArg
+#@ 
+#@     set helpOpt                 [int_get_argument myArg -help 0]
+#@     set includeQualifierOpt     [int_get_argument myArg -include_qualifier 0]
+#@ 
+#@     if {$helpOpt==1} {
+#@         puts "Usage characterize_blocks   # Provide the type of constraints to be characterized at block boundary. Use '-include_qualifier' to include the dumping of 'configure_cdc_data_sync' constraints. By Default 'clock', 'reset', 'static', 'sca', 'attribute', 'scg' constraint types are dumped"
+#@         puts "       \[-help\]       (Shows help for the command)"
+#@         return
+#@     }
+#@ 
+#@     configure_cdc_tag -tag *SETUP* -disable
+#@     configure_cdc_tag -tag ASYNCRST_* -disable
+#@ 
+#@     if { $includeQualifierOpt != 0 } {
+#@         #configure_cdc_data_sync -skip_sync
+#@         check_cdc -type sync
+#@     } else {
+#@         check_cdc -type setup
+#@     }
+#@ }
+#@ 
+#@ 
+#@ proc write_hier_constraints { args } {
+#@ 
+#@     parse_proc_arguments -args $args myArg
+#@ 
+#@     set helpOpt                 [int_get_argument myArg -help 0]
+#@     set blockModuleNameList     [int_get_argument myArg -blocks ""]
+#@ 
+#@     if {$helpOpt==1} {
+#@         return "0"
+#@     }
+#@ 
+#@     if {$blockModuleNameList != "" && [llength $blockModuleNameList] != 0} {
+#@ 
+#@         foreach blk $blockModuleNameList {
+#@             foreach_in_collection cell [get_cells -hier -filter "ref_name==$blk"] {
+#@                 set inst_name [get_attribute $cell full_name]
+#@                 set file_name [ string map { / . } [concat $inst_name.tcl] ]
+#@                 puts "writing constraints for $inst_name"
+#@                 write_block_constraints -instance ${inst_name} -file $file_name
+#@             }
+#@         }
+#@     }
+#@ 
+#@     return 1
+#@ }
+#@ 
+#@ 
+#@ set txt "Characterize blocks with the type of constraints to be dumped in top-down constraints migration"
+#@ set group "CDC"
+#@ 
+#@ create_proc_command characterize_blocks -info $txt -command_group $cmd_group -hide_body     -define_args {
+#@         {-help "Prints help text for this command" "" boolean optional}
+#@         {-include_qualifier "Include dumping of qualifier constraints" "" boolean optional}
+#@     }
+#@ 
+#@ set wbcTxt "Write constraints for every instances of given blocks"
+#@ 
+#@ create_proc_command write_hier_constraints -info $txt -command_group $cmd_group -hide_body     -define_args {
+#@         {-help "Prints help text for this command" "" boolean optional}
+#@         {-blocks "list of block names" "<block_names>" string}
+#@     }
+#@ # -- End source /usr/local/packages/synopsys_2020/vc_static/Q-2020.03-SP2/auxx/monet/tcl/cdc_scripts/characterize_blocks.tcl
+
+#@ # -- End source /usr/local/packages/synopsys_2020/vc_static/Q-2020.03-SP2/auxx/monet/tcl/cdc_scripts/cdc_default_settings.tcl
+
+#@ # -- Starting source /usr/local/packages/synopsys_2020/vc_static/Q-2020.03-SP2/auxx/monet/tcl/cdc_scripts/setup_netlist_cdc.tcl
+
+#@ # This tcl procedure sets up netlist configuration for cdc.
+#@ 
+#@ proc setup_netlist_cdc { args } {
+#@     if {$args == "-help"} {
+#@         #puts "Usage: setup_netlist_cdc # Sets up netlist configuration for cdc"
+#@         return
+#@     }
+#@     set_app_var enable_cgc_autodetect false  
+#@     set_app_var cdc_enable_merge_vector false 
+#@     set_app_var cdc_enable_libcell_mismatch_check true 
+#@ 
+#@ }
+#@ 
+#@ # Make the above command show up in "help"
+#@ set txt "Set up netlist configuration for cdc"
+#@ set group "CDC"
+#@ create_proc_command setup_netlist_cdc -info $txt -command_group $group -hidden 
+#@ # -- End source /usr/local/packages/synopsys_2020/vc_static/Q-2020.03-SP2/auxx/monet/tcl/cdc_scripts/setup_netlist_cdc.tcl
+
+#@ # -- Starting source /usr/local/packages/synopsys_2020/vc_static/Q-2020.03-SP2/auxx/monet/tcl/cdc_scripts/setup_netlist_cdc_opt.tcl
+
+#@ # This tcl procedure sets up optional netlist configuration for cdc.
+#@ 
+#@ proc setup_netlist_cdc_opt { args } {
+#@     if {$args == "-help"} {
+#@         #puts "Usage: setup_netlist_cdc_opt # Sets up optional netlist configuration for cdc"
+#@         return
+#@     }
+#@     setup_netlist_cdc
+#@     set_app_var disable_path_from_inout_to_out true 
+#@     set_app_var enable_scc_bidir_support true 
+#@ 
+#@ }
+#@ 
+#@ # Make the above command show up in "help"
+#@ set txt "Set up optional netlist configuration for cdc"
+#@ set group "CDC"
+#@ create_proc_command setup_netlist_cdc_opt -info $txt -command_group $group -hidden
+#@ # -- End source /usr/local/packages/synopsys_2020/vc_static/Q-2020.03-SP2/auxx/monet/tcl/cdc_scripts/setup_netlist_cdc_opt.tcl
+
+#@ # -- Starting source /usr/local/packages/synopsys_2020/vc_static/Q-2020.03-SP2/auxx/monet/tcl/cdc_scripts/rdc_default_settings.tcl
+
+#@ # This tcl procedure configure minimal settings for cdc check correctness.
+#@ 
+#@ proc rdc_default_settings { args } {
+#@     if {$args == "-help"} {
+#@         puts "Usage: rdc_default_settings # Configure minimal settings for rdc out of the box run"
+#@         return
+#@     }
+#@     #enable_cdc : Enable CDC specific default settings.
+#@     set_app_var enable_cdc true
+#@     #first disable all setup tags.
+#@     configure_rdc_tag -disable -tag SETUP_*
+#@     configure_rdc_tag -enable -tag {                 SETUP_*_OVERLAP                 SETUP_BBOXPIN_UNCONSTRAINED                 SETUP_BBOXPIN_CONSTRAINED                 SETUP_CGLIBCELL_DEF_INCOMPLETE                 SETUP_CLOCK_CONSTANT                 SETUP_CLOCK_UNDECL                 SETUP_CLOCK_UNUSED                 SETUP_DATA_CONSTANT                 SETUP_DESIGN_OBJECT_NONEXIST                 SETUP_DOMAIN_INFER                 SETUP_HIER_CLOCK_MISMATCH                 SETUP_HIER_PORT_RESET_ATTRIBUTE_MISMATCH                 SETUP_HIER_RDC_*                 SETUP_HIER_RESET_MISMATCH                 SETUP_LIBCELL_DEF_INCOMPLETE                 SETUP_MULTIPLE_CONSTRAINTS                 SETUP_QUAL_CLK_DOMAIN_INFERRED                 SETUP_RESET_INFER                 SETUP_ASYNCRESET_UNUSED                 SETUP_SYNCRESET_UNUSED                 SETUP_RESET_ASSERTION_SEQUENCE_CONFLICT                 SETUP_RESET_ASSERTION_SEQUENCE_NOMATCH                 SETUP_RESET_CONSTANT_ACTIVE                 SETUP_RESET_CONSTANT_INACTIVE                 SETUP_RESET_CONV_COMBO                 SETUP_RESET_CONV_MUX                 SETUP_RESET_DRIVING_NON_ASYNC_PIN                 SETUP_RESET_EVENT_SANITY                 SETUP_RESET_GROUP_EMPTY                 SETUP_RESET_GROUP_INVALID                 SETUP_RESET_OVERLAP                 SETUP_RESET_PROPAGATED                 SETUP_RESET_SCENARIO_SANITY                 SETUP_RESET_UNDECL                 SETUP_RDC_CMD_OVERWRITTEN                 SETUP_RDC_CORRUPT_DEPTH_EXCEEDED                 SETUP_RDC_CORRUPT_RESET_INVALID                 SETUP_RDC_CORRUPT_DEPTH_NOTRUN                 SETUP_RDC_CORRUPT_DEPTH_TIMEOUT                 SETUP_RDC_NFF_NOMATCH                 SETUP_RDC_QUALIFIER_SANITY                 SETUP_SDC_*                 SETUP_RESET_SENSE_INVALID                SETUP_RESET_INFERRED_SOFT            }
+#@ 
+#@     #memory inferencing enabled.
+#@     #configure_mem_macro_inference -mthresh 1024
+#@     #set_app_var disable_memx_transform false
+#@     #
+#@     set_app_var enable_recircmux_propagation true
+#@     compress_rdc -enable rdc_rst_dest_rst_clk
+#@     #reset propagation configuration with RST2Q Enabled.
+#@     configure_reset_propagation -propagate_through_reset_pin true
+#@ 
+#@     set_app_var case_analysis_sequential_propagation true
+#@     set_app_var rdc_mem_threshold -1
+#@     set_app_var rdc_seq_width_threshold false
+#@     set_app_var max_gate_width_in_reset_path -1
+#@     set_app_var sam_const_optimization_level 7
+#@     set_app_var ignore_sam_local_dest true
+#@     set_app_var enable_reset_verification false
+#@     # disable multi-mode command until it gets productionized
+#@     configure_tcl_command -cmd run_active_scenarios -disable -quiet
+#@ }
+#@ # Make the above command show up in "help"
+#@ set txt "Configure minimal settings for rdc out of the box run"
+#@ set group "CDC"
+#@ create_proc_command rdc_default_settings -info $txt -command_group $group -hidden
+#@ # -- End source /usr/local/packages/synopsys_2020/vc_static/Q-2020.03-SP2/auxx/monet/tcl/cdc_scripts/rdc_default_settings.tcl
+
+#@ # -- Starting source /usr/local/packages/synopsys_2020/vc_static/Q-2020.03-SP2/auxx/monet/tcl/cdc_scripts/merge_demerge_attribute.tcl
+
+#@ proc get_mapped_name { merge_or_demerge args}   {
+#@     if { "$merge_or_demerge" == "-merged_pin_name"} {
+#@         set outstring [get_attribute [get_pins $args] merged_pin_name]
+#@         echo $outstring
+#@     }
+#@     if { "$merge_or_demerge" == "-demerged_pin_name"} {
+#@         set outstring  [get_attribute [get_pins $args] demerged_pin_name]
+#@         echo $outstring
+#@     }
+#@     if { "$merge_or_demerge" == "-help"} {
+#@         puts "Provide an internal debug command for Multi-Flop register Name Mapping which can take the current name and generate the mapped name and vice_versa."
+#@         puts "Usage -"
+#@         puts "get_mapped_name  -merged_pin_name  < merged_pin_name> will return the demerged pin name."
+#@         puts "get_mapped_name  -demerged_pin_name <demerged_pin_name> will return the merged pin name."
+#@     }
+#@ }
+#@ set get_mapped_name_help_text "Provide an internal debug command for Multi-Flop register Name Mapping which can take the current name and generate the mapped name and vice_versa."
+#@ 
+#@ 
+#@ create_proc_command get_mapped_name -info $get_mapped_name_help_text         -define_args {
+#@     {-help "Prints help text for this command" "" boolean optional}
+#@     {-merged_pin_name "get_mapped_name  -merged_pin_name  < merged_pin_name> will return the demerged pin name."}
+#@     {-demerged_pin_name "get_mapped_name -demerged_pin_name  < demerged_pin_name> will return the merged pin name."}
+#@ }
+#@ 
+#@ 
+#@ # -- End source /usr/local/packages/synopsys_2020/vc_static/Q-2020.03-SP2/auxx/monet/tcl/cdc_scripts/merge_demerge_attribute.tcl
+
+#@ # -- Starting source /usr/local/packages/synopsys_2020/vc_static/Q-2020.03-SP2/auxx/monet/tcl/fv.tcl
+
+#@ # Sourced by vcst at startup for formal applications.  Keep the code
+#@ # here short, and use autoload to source actual content.
+#@ 
+#@ lappend ::auto_path $env(VC_STATIC_HOME)/auxx/monet/tcl
+#@ 
+#@ source -direct $env(VC_STATIC_HOME)/auxx/monet/tcl/fv_helper.tcl
+#@ source -direct $env(VC_STATIC_HOME)/auxx/monet/tcl/fv_reduced_constraints.tcl
+#@ source -direct $env(VC_STATIC_HOME)/auxx/monet/tcl/fv_bh.tcl
+#@ source -direct $env(VC_STATIC_HOME)/auxx/monet/tcl/common_helper.tcl
+#@ source -direct $env(VC_STATIC_HOME)/auxx/monet/tcl/fv_lp.tcl
+#@ # -- End source /usr/local/packages/synopsys_2020/vc_static/Q-2020.03-SP2/auxx/monet/tcl/fv.tcl
+
+#@ # -- Starting source /usr/local/packages/synopsys_2020/vc_static/Q-2020.03-SP2/auxx/monet/tcl/constraints_scripts/constraints_default_settings.tcl
+
+#@ # This tcl procedure configure minimal settings for constraints check correctness.
+#@ 
+#@ proc constraints_default_settings { args } {
+#@     if {$args == "-help"} {
+#@         puts "Usage: constraints_default_settings # Configure minimal settings for constraints check correctness"
+#@         return
+#@     }
+#@ 
+#@     # enable deprecated flow for libcell editing on basis of SDT.
+#@     set_app_var constant_connectvity_cache true
+#@ 
+#@     # app-var to infer pin direction of unresolved modules
+#@     set_app_var port_coercion autoblackbox
+#@ 
+#@     # its a SpyGlass feature
+#@     set_app_var enable_schematic_clouds true
+#@ 
+#@     # app-var to enable ldpc
+#@     set_app_var enable_ldpc_transform true
+#@ 
+#@     # app-var to enable fdpc
+#@     set_app_var enable_fdpc_transform true
+#@ 
+#@     # app-var to enable sequential constant propagation
+#@     set_app_var case_analysis_sequential_propagation true
+#@ 
+#@     # constant propagation through cgc
+#@     set_app_var case_analysis_propagate_through_icg true
+#@ 
+#@     # generate elab summary report
+#@     set_app_var generate_elab_summary_report true
+#@ 
+#@     # app-var to enable naming infra to support define_name_rules
+#@     set_app_var enable_new_name_interface true
+#@ 
+#@     # app-var to remove temporary flops
+#@     set_app_var enable_remove_temporary_flops true
+#@ }
+#@ 
+#@ # Make the above command show up in "help"
+#@ set txt "Configure minimal settings for constraints check correctness"
+#@ set group "CONSTRAINTS"
+#@ create_proc_command constraints_default_settings -info $txt -command_group $group
+#@ # -- End source /usr/local/packages/synopsys_2020/vc_static/Q-2020.03-SP2/auxx/monet/tcl/constraints_scripts/constraints_default_settings.tcl
+
+MasterSourceFile run.tcl
+source -echo -verbose run.tcl
+#@ # -- Starting source run.tcl
+
+#@ #tcl variable to switch to SEQ app mode
+#@ set_fml_appmode SEQ
+#@ 
+#@ #to compile spec and impl design
+#@ analyze -format sverilog -vcs "../design/rtl1cg_bad.v"
+#@ elaborate_seq -spectop mul -impltop mul -same_design
+#@ 
+#@ #reate assert properties for top module outputs,
+#@ #blackbox inputs, abstracted points and assume properties for top module inputs, blackbox
+#@ #outputs, undriven nets.
+#@ map_by_name -exclude "cgc_disable"
+#@ 
+#@ create_clock spec.clk -period 100
+#@ create_reset spect.rst -sense low 
+#@ 
+#@ sim_run -stable 
+#@ sim_save_reset
+#@ 
+#@ seq_config -map_uninit -map_x zero
+#@ fvassume asm_spec_cgc_disable_on -expr "spec.cgc_disable==1'b1"
+#@ fvassume asm_impl_cgc_disbale_off -expr "impl.cgc_disable==1'b0"
+#@ 
+#@ 
+#@ # -- End source run.tcl
+
+action aaMonetBanffSavePropDBToStream -reset -summary 1 -trigger
+action aaHierViewSrc:0 -reset
+action aaHierViewSrc:0 -trigger
+waitfor aaHierViewSrc:0
+
+action aaMonetAvClickedDone:0 -reset
+action aaMonetAvClicked:0 -trigger
+waitfor aaMonetAvClickedDone:0
+
+action aaVerdiWaitAnnotation -trigger
+action aaMonetSetReuseWave -data {}
+action aaMonetBanffSavePropDBToStream -reset -summary 1 -trigger
+report_constant -xml > /home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/verdi/constant.xml ; verdi_cmd verdiVcstConstantReport -xmlFile /home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/verdi/constant.xml
+check_fv

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<DfgsimReport>
+	<v1>
+		<Signal-Groups>
+			<Group name="Clocks">
+				<signal>spec.clk</signal>
+			</Group>
+		</Signal-Groups>
+	</v1>
+</DfgsimReport>

@@ -1,0 +1,93 @@
+1 WC worker_started -
+1 WC machine kamek.ece.utexas.edu
+1 WC task_start 1
+2 WC worker_started -
+2 WC machine kamek.ece.utexas.edu
+2 WC task_start 2
+2 WK 2 0 94 errorstream Info DFR-003: Format version (13) doesn't match default version (17).
+2 WK 2 0 111 __result PROVEN : 1
+2 WK 2 0 111 __result NUM_GATES : rw1_1 : 17166
+1 WC task_complete 1 user_status_valid 0 94 62 193 271 363 2106225 0 
+2 WC task_complete 2 user_status_valid 0 111 64 193 271 363 2106225 0 
+1 WC task_start 3
+2 WC task_start 4
+2 WK 4 0 121 __result FOUND_CE : 0
+3 WC worker_started -
+4 WC worker_started -
+3 WC machine kamek.ece.utexas.edu
+3 WC task_start 5
+4 WC machine kamek.ece.utexas.edu
+4 WC task_start 6
+2 WK 4 0 121 __result DCP : DFG : dcp_A : /home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/formal/fpId0/tw/seqdef/rw1_1_rewrite/dcp_A_wlRegmap.xml
+3 WK 5 0 115 __result BOUNDED_PROOF : 0 : 0
+3 WK 5 0 115 __result BOUNDED_PROOF : 0 : 1
+3 WK 5 0 115 __result UNKNOWN : 0
+3 WK 5 0 115 __result PROVEN : 1
+3 WK 5 0 115 __result HELPER : DFG : /home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/formal/fpId0/tw/seqdef/rw1_1_rewrite/helpers/_helper_0.dfg
+4 WK 6 0 105 __result BOUNDED_PROOF : 0 : 0
+4 WK 6 0 105 __result BOUNDED_PROOF : 1 : 0
+4 WK 6 0 105 __result BOUNDED_PROOF : 0 : 1
+4 WK 6 0 105 __result BOUNDED_PROOF : 1 : 1
+4 WK 6 0 105 __result BOUNDED_PROOF : 0 : 2
+4 WK 6 0 105 __result BOUNDED_PROOF : 1 : 2
+4 WK 6 0 105 __result BOUNDED_PROOF : 0 : 3
+4 WK 6 0 105 __result BOUNDED_PROOF : 1 : 3
+4 WK 6 0 106 __result FOUND_CE : 0 : /home/ecelrc/students/jkhare/verif_labs/lab4/run/vcst_rtdb/.internal/formal/fpId0/tw/cexDir/result_b1_4_0 : 4
+4 WK 6 0 106 __result BOUNDED_PROOF : 1 : 4
+4 WK 6 0 106 __result BOUNDED_PROOF : 1 : 5
+4 WK 6 0 108 __result BOUNDED_PROOF : 1 : 6
+4 WK 6 0 108 __result BOUNDED_PROOF : 1 : 7
+4 WK 6 0 108 __result BOUNDED_PROOF : 1 : 8
+4 WK 6 0 108 __result BOUNDED_PROOF : 1 : 9
+4 WK 6 0 111 __result BOUNDED_PROOF : 1 : 10
+4 WK 6 0 113 __result BOUNDED_PROOF : 1 : 11
+4 WK 6 0 113 __result BOUNDED_PROOF : 1 : 12
+4 WK 6 0 113 __result BOUNDED_PROOF : 1 : 13
+4 WK 6 0 113 __result BOUNDED_PROOF : 1 : 14
+4 WK 6 0 118 __result BOUNDED_PROOF : 1 : 15
+4 WK 6 0 118 __result BOUNDED_PROOF : 1 : 16
+4 WK 6 0 118 __result BOUNDED_PROOF : 1 : 17
+4 WK 6 0 118 __result BOUNDED_PROOF : 1 : 18
+4 WK 6 0 118 __result BOUNDED_PROOF : 1 : 19
+4 WK 6 0 118 __result BOUNDED_PROOF : 1 : 20
+4 WK 6 0 118 __result BOUNDED_PROOF : 1 : 21
+4 WK 6 0 118 __result BOUNDED_PROOF : 1 : 22
+4 WK 6 0 118 __result BOUNDED_PROOF : 1 : 23
+4 WK 6 0 125 __result BOUNDED_PROOF : 1 : 24
+4 WK 6 0 125 __result BOUNDED_PROOF : 1 : 25
+4 WK 6 0 125 __result BOUNDED_PROOF : 1 : 26
+4 WK 6 0 125 __result BOUNDED_PROOF : 1 : 27
+4 WK 6 0 125 __result BOUNDED_PROOF : 1 : 28
+4 WK 6 0 125 __result BOUNDED_PROOF : 1 : 29
+4 WK 6 0 125 __result BOUNDED_PROOF : 1 : 30
+4 WK 6 0 125 __result BOUNDED_PROOF : 1 : 31
+4 WK 6 0 125 __result BOUNDED_PROOF : 1 : 32
+4 WK 6 0 125 __result BOUNDED_PROOF : 1 : 33
+4 WK 6 0 125 __result BOUNDED_PROOF : 1 : 34
+4 WK 6 0 125 __result BOUNDED_PROOF : 1 : 35
+4 WK 6 0 125 __result BOUNDED_PROOF : 1 : 36
+4 WK 6 0 136 __result BOUNDED_PROOF : 1 : 37
+4 WK 6 0 136 __result BOUNDED_PROOF : 1 : 38
+4 WK 6 0 136 __result BOUNDED_PROOF : 1 : 39
+4 WK 6 0 136 __result BOUNDED_PROOF : 1 : 40
+4 WK 6 0 136 __result BOUNDED_PROOF : 1 : 41
+4 WK 6 0 136 __result BOUNDED_PROOF : 1 : 42
+4 WK 6 0 136 __result BOUNDED_PROOF : 1 : 43
+4 WK 6 0 136 __result BOUNDED_PROOF : 1 : 44
+4 WK 6 0 136 __result BOUNDED_PROOF : 1 : 45
+4 WK 6 0 136 __result BOUNDED_PROOF : 1 : 46
+4 WK 6 0 136 __result BOUNDED_PROOF : 1 : 47
+4 WK 6 0 136 __result BOUNDED_PROOF : 1 : 48
+4 WK 6 0 136 __result BOUNDED_PROOF : 1 : 49
+4 WK 6 0 136 __result BOUNDED_PROOF : 1 : 50
+4 WK 6 0 136 __result BOUNDED_PROOF : 1 : 51
+4 WK 6 0 136 __result BOUNDED_PROOF : 1 : 52
+4 WK 6 0 136 __result BOUNDED_PROOF : 1 : 53
+4 WK 6 0 136 __result BOUNDED_PROOF : 1 : 54
+4 WK 6 0 136 __result BOUNDED_PROOF : 1 : 55
+4 WK 6 0 152 __result BOUNDED_PROOF : 1 : 56
+4 WK 6 0 152 __result BOUNDED_PROOF : 1 : 57
+1 WC task_complete 3 user_status_valid 0 99 63 193 271 363 2106222 0 0
+2 WC task_complete 4 user_status_valid 0 121 64 193 271 363 2106222 0 0
+3 WC task_complete 5 user_status_valid 0 115 64 193 271 363 2106222 0 0
+4 WC task_complete 6 application_killed 1 152 63 193 271 363 2106222 
